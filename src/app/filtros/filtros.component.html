@@ -1,5 +1,39 @@
-<p-multiSelect [options]="cities" [(ngModel)]="selectedCities"></p-multiSelect>
-<p-multiSelect [options]="cities" [(ngModel)]="selectedCities"></p-multiSelect>
-<p-multiSelect [options]="cities" [(ngModel)]="selectedCities"></p-multiSelect>
-<p-multiSelect [options]="cities" [(ngModel)]="selectedCities"></p-multiSelect>
-<p-multiSelect [options]="cities" [(ngModel)]="selectedCities"></p-multiSelect>
+<h3>Busca tu casa ideal</h3>
+<div class="form-group">
+    <label>Palabras clave</label>
+    <div>
+        <p-chips [(ngModel)]="palabras"></p-chips>
+    </div>
+</div>
+<div class="form-group">
+    <label>Tipo de servicio</label>
+    <div class="checkbox">
+        <p-checkbox name="groupname" value="val1" label="Renta" [(ngModel)]="selectedValues"></p-checkbox>
+    </div>
+    <div class="checkbox">
+        <p-checkbox name="groupname" value="val1" label="Venta" [(ngModel)]="selectedValues"></p-checkbox>
+    </div>
+</div>
+
+<div class="form-group">
+    <label>Tipo de servicio</label>
+    <div>
+        <p-multiSelect [options]="tipos" [(ngModel)]="selectedTipos" [styleClass]="servicio"></p-multiSelect>
+    </div>
+</div>
+<!--<label>
+        Tipo de servicio <br />
+        
+</label>
+<label>
+        Tipo de inmueble <br />
+        <p-multiSelect [options]="tipos" [(ngModel)]="selectedTipos"></p-multiSelect>
+</label>
+<label>
+        Ubicación <br />
+        <p-multiSelect [options]="ubicacion" [(ngModel)]="selectedUbicacion"></p-multiSelect>
+</label>
+<label>
+    Rango de precios: {{rangoPrecios[0] + ' - ' + rangoPrecios[1]}} <br />
+    <p-slider [(ngModel)]="rangoPrecios" [range]="true" [min]="500" [max]="2000" [step]="500"></p-slider>
+</label>-->

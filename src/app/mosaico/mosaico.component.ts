@@ -2,11 +2,11 @@ import { Component, OnInit, Input } from '@angular/core';
 import Inmueble from '../../modelos/inmueble';
 
 @Component({
-  selector: 'app-mosaicos',
-  templateUrl: './mosaicos.component.html',
-  styleUrls: ['./mosaicos.component.css']
+  selector: 'app-mosaico',
+  templateUrl: './mosaico.component.html',
+  styleUrls: ['./mosaico.component.css']
 })
-export class MosaicosComponent {
+export class MosaicoComponent {
   @Input() inmueble: Inmueble;
 
   constructor() { }

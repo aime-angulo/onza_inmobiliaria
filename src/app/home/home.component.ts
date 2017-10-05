@@ -14,7 +14,9 @@ export class HomeComponent {
       let fake = {
         id: i + 1,
         servicio: "Renta",
-        precio: 1500
+        precio: 1500,
+        ubicación: "Norte",
+        encabezado: "GRAN RESIDENCIA",
       };
       this.inmuebles.push(new Inmueble(fake));
     }

@@ -7,17 +7,41 @@ import { SelectItem } from 'primeng/primeng';
   styleUrls: ['./filtros.component.css']
 })
 export class FiltrosComponent implements OnInit {
-  cities: SelectItem[];
-  selectedCities: string[];
+
+  servicios = [
+    { label: 'Renta', value: 'Renta' },
+    { label: 'Venta', value: 'Venta' }
+  ];
+  selectedServicios: string[];
+
+  tipos = [
+    { label: 'Casa', value: 'Casa' },
+    { label: 'Condominio', value: 'Condominio' },
+    { label: 'Bodega', value: 'Bodega' },
+    { label: 'Departamento', value: 'Departamento' },
+    { label: 'Terreno', value: 'Terreno' },
+    { label: 'Penthouse', value: 'Penthouse' },
+    { label: 'Local', value: 'Local' },
+    { label: 'Oficina', value: 'Oficina' },
+    { label: 'Villa', value: 'Villa' },
+    { label: 'Edificio', value: 'Edificio' },
+  ];
+  selectedTipos: string[];
+
+  ubicacion = [
+    { label: 'Norte', value: 'Norte' },
+    { label: 'Sur', value: 'Sur' },
+    { label: 'Este', value: 'Este' },
+    { label: 'Oeste', value: 'Oeste' },
+  ];
+  selectedUbicacion: string[];
+
+  rangoPrecios: number[] = [500, 1000];
 
 
+  palabras: string[];
   constructor() {
-    this.cities = [];
-    this.cities.push({ label: 'New York', value: 'New York' });
-    this.cities.push({ label: 'Rome', value: 'Rome' });
-    this.cities.push({ label: 'London', value: 'London' });
-    this.cities.push({ label: 'Istanbul', value: 'Istanbul' });
-    this.cities.push({ label: 'Paris', value: 'Paris' });
+
   }
 
   ngOnInit() {
