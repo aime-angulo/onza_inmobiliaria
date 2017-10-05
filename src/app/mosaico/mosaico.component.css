@@ -1,0 +1,22 @@
+hr {
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+h4 {
+    font-size: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+a.btn-link:hover, a.btn-link:focus {
+    text-decoration: none;
+}
+
+.fa-facebook-official {
+    font-size: 20px;
+    margin-top: 1px;
+    color: #3b5998;
+}

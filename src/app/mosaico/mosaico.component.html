@@ -1,10 +1,21 @@
 <div class="thumbnail">
-  <img src="assets/images/1.jpg">
+  <img src="assets/images/2.jpg">
   <div class="caption">
-    <h3>{{inmueble.encabezado}}</h3>
-    Precio: {{inmueble.precio | currency}}
-    <p>
-    </p>
-    <button class="btn btn-warning" (click)="mostrarInfo()">Ver más información</button>
+    <h4>{{inmueble.encabezado}}</h4>
+    <hr />
+    <div class="row">
+      <div class="col-xs-8">$ {{inmueble.precio | number : '1.2-2'}}</div>
+      <div class="col-xs-4 text-right">{{inmueble.servicio}}</div>
+    </div>
+    <hr />
+    <h4>
+      <p><i class="fa fa-fw fa-location-arrow" aria-hidden="true"></i> {{inmueble.ubicacion}}</p>
+    </h4>
+    <h5>
+      <p>{{inmueble.resumen}}</p>
+    </h5>
+    <hr />
+    <i class="fa fa-fw fa-facebook-official" title="Comparte esta propiedad en Facebook"></i>
+    <button class="btn btn-xs btn-link pull-right" routerLink="/inmueble/{{inmueble.id}}"><i class="fa fa-fw fa-info"></i> Más información</button>
   </div>
 </div>

@@ -15,8 +15,9 @@ export class HomeComponent {
         id: i + 1,
         servicio: "Renta",
         precio: 1500,
-        ubicación: "Norte",
+        ubicacion: "Norte",
         encabezado: "GRAN RESIDENCIA",
+        resumen: "Hermosa residencia ubicada al norte de Mérida, con amplios jardines y hermosa fachada.",
       };
       this.inmuebles.push(new Inmueble(fake));
     }

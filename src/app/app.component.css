@@ -1,0 +1,14 @@
+footer{
+    text-align: center;
+    padding: 50px;
+    font-size: unset;
+    color: slategrey;
+}
+.header{
+     
+}
+/*
+div < Es un tag
+.algo < "algo" es una clase
+#objetoUnico < "objetoUnico" es un "id" de algún objeto del DOM
+*/

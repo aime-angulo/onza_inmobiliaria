@@ -5,35 +5,32 @@
         <p-chips [(ngModel)]="palabras"></p-chips>
     </div>
 </div>
+
 <div class="form-group">
     <label>Tipo de servicio</label>
     <div class="checkbox">
         <p-checkbox name="groupname" value="val1" label="Renta" [(ngModel)]="selectedValues"></p-checkbox>
     </div>
     <div class="checkbox">
-        <p-checkbox name="groupname" value="val1" label="Venta" [(ngModel)]="selectedValues"></p-checkbox>
+        <p-checkbox name="groupname" value="val2" label="Venta" [(ngModel)]="selectedValues"></p-checkbox>
     </div>
 </div>
 
 <div class="form-group">
-    <label>Tipo de servicio</label>
+    <label>Tipo de inmueble</label>
     <div>
-        <p-multiSelect [options]="tipos" [(ngModel)]="selectedTipos" [styleClass]="servicio"></p-multiSelect>
+        <angular2-multiselect [data]="tipos" [(ngModel)]="selectedTipos" [settings]="dropdownSettings"></angular2-multiselect>
     </div>
 </div>
-<!--<label>
-        Tipo de servicio <br />
-        
-</label>
-<label>
-        Tipo de inmueble <br />
-        <p-multiSelect [options]="tipos" [(ngModel)]="selectedTipos"></p-multiSelect>
-</label>
-<label>
-        Ubicación <br />
-        <p-multiSelect [options]="ubicacion" [(ngModel)]="selectedUbicacion"></p-multiSelect>
-</label>
-<label>
-    Rango de precios: {{rangoPrecios[0] + ' - ' + rangoPrecios[1]}} <br />
+
+<div class="form-group">
+    <label>Ubicación</label>
+    <div>
+        <angular2-multiselect [data]="ubicacion" [(ngModel)]="selectedUbicacion" [settings]="dropdownSettings"></angular2-multiselect>
+    </div>
+</div>
+
+<div class="form-group">
+    <label>Rango de precios: {{rangoPrecios[0] + ' - ' + rangoPrecios[1]}}</label>
     <p-slider [(ngModel)]="rangoPrecios" [range]="true" [min]="500" [max]="2000" [step]="500"></p-slider>
-</label>-->
+</div>

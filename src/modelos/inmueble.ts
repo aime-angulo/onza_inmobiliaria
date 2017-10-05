@@ -10,6 +10,7 @@ export default class Inmueble {
     foto_principal: string;
     fecha_registro: Date;
     fecha_update: Date;
+    resumen: string;
 
     constructor(o: any) {
         this.id = o.id || this.id;
@@ -23,5 +24,6 @@ export default class Inmueble {
         this.foto_principal = o.foto_principal || this.foto_principal;
         this.fecha_registro = o.fecha_registro || this.fecha_registro;
         this.fecha_update = o.fecha_update || this.fecha_update;
+        this.resumen = o.resumen || this.resumen;
     }
 }
