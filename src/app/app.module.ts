@@ -1,8 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { DataGridModule, SliderModule, ChipsModule, CheckboxModule } from 'primeng/primeng';
+import { DataGridModule, SliderModule, ChipsModule, CheckboxModule, GMapModule } from 'primeng/primeng';
 import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown/angular2-multiselect-dropdown';
+
+
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -27,6 +29,7 @@ import { RouterModule } from '@angular/router';
     ChipsModule,
     CheckboxModule,
     AngularMultiSelectModule,
+    GMapModule,
 
     RouterModule.forRoot(
       [{
