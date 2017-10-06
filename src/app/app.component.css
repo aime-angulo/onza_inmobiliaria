@@ -1,12 +1,17 @@
-footer{
-    text-align: center;
-    padding: 50px;
-    font-size: unset;
-    color: slategrey;
+footer {
+    padding: 30px;   
+    background: #f3f3f3;
+    color: #363636;
 }
-.header{
-     
+
+footer a {
+    text-decoration: none;
 }
+
+footer h4 {
+    margin-top: 0;
+}
+
 /*
 div < Es un tag
 .algo < "algo" es una clase

@@ -31,6 +31,7 @@
 </div>
 
 <div class="form-group">
-    <label>Rango de precios: {{rangoPrecios[0] + ' - ' + rangoPrecios[1]}}</label>
-    <p-slider [(ngModel)]="rangoPrecios" [range]="true" [min]="500" [max]="2000" [step]="500"></p-slider>
+    <label>Rango de precios</label>
+    <div class="rango-de-precios">{{rangoPrecios[0] + ' - ' + rangoPrecios[1]}}</div>
+    <p-slider [(ngModel)]="rangoPrecios" [range]="true" [min]="500" [max]="2000" [step]="500" (onChange)="rangoSeleccionado($event)"></p-slider>
 </div>

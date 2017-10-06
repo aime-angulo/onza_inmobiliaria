@@ -1,0 +1,50 @@
+h1, h3.info-header {
+    margin-top: 0;
+}
+
+.galeria .ng-gallery {
+    max-height: 298px;
+    overflow: auto;
+    border: 1px #d6d6d6 solid;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.galeria .ng-gallery div {
+    display: inline-block;
+    height: 118px;
+    border: 2px solid #d6d6d6;
+    background: #d6d6d6;
+    margin: 10px;
+}
+
+.galeria .ng-gallery .ng-thumb  {
+    max-width: 100%;
+    max-height:100%;
+    display: inline-block;
+    margin: 0 auto;
+    vertical-align: middle;
+    height: inherit;
+    float: none;
+}
+
+.map ngui-map {
+    min-height: 500px;
+}
+
+.folio-contenedor h4 {
+    margin-bottom: 6px;
+}
+
+.btn-facebook {
+    overflow: auto;
+}
+
+.btn-facebook.hidden-lg .btn {
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.btn-facebook.hidden-lg .fa {
+    font-size: 24px;
+}

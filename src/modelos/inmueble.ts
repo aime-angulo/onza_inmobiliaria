@@ -12,6 +12,7 @@ export default class Inmueble {
     fecha_update: Date;
     resumen: string;
     coordenadas: string;
+    imagenes: string[];
 
     constructor(o: any) {
         this.id = o.id || this.id;
@@ -27,5 +28,12 @@ export default class Inmueble {
         this.fecha_update = o.fecha_update || this.fecha_update;
         this.resumen = o.resumen || this.resumen;
         this.coordenadas = o.coordenadas || this.coordenadas;
+
+        this.imagenes = [];
+        for (let i = 1; i < 8; i++) {
+            this.imagenes.push(`assets/images/${i}.jpg`);
+            this.imagenes.push(`assets/images/${i}.jpg`);
+            this.imagenes.push(`assets/images/${i}.jpg`);
+        }
     }
 }

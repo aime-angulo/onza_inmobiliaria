@@ -56,4 +56,9 @@ export class FiltrosComponent implements OnInit {
   ngOnInit() {
   }
 
+  rangoSeleccionado($event) {
+    console.log($event);
+    $event.values[0] = "hola";
+  }
+
 }
