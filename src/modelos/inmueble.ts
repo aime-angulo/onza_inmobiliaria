@@ -32,8 +32,6 @@ export default class Inmueble {
         this.imagenes = [];
         for (let i = 1; i < 8; i++) {
             this.imagenes.push(`assets/images/${i}.jpg`);
-            this.imagenes.push(`assets/images/${i}.jpg`);
-            this.imagenes.push(`assets/images/${i}.jpg`);
         }
     }
 }

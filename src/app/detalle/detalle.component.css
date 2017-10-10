@@ -1,13 +1,17 @@
-h1, h3.info-header {
+.detalle-header {
+    margin-bottom: 10px;
+}
+
+h1, h3.info-header, h4 {
     margin-top: 0;
 }
 
 .galeria .ng-gallery {
     max-height: 298px;
     overflow: auto;
-    border: 1px #d6d6d6 solid;
     border-radius: 4px;
     text-align: center;
+    background: #f3f3f3;
 }
 
 .galeria .ng-gallery div {

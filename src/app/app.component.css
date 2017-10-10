@@ -16,4 +16,27 @@ footer h4 {
 div < Es un tag
 .algo < "algo" es una clase
 #objetoUnico < "objetoUnico" es un "id" de algún objeto del DOM
-*/
+/* */
+.header {
+    background-image: url("../assets/images/encabezado.jpg") ;
+    height: 180px;
+    margin: 0px 0 20px 0;
+    border-radius: 4px;
+    background-size: contain;
+    position: relative;
+} 
+
+.logo {
+    background-image: url("../assets/images/onza.svg");
+    height: 180px;
+    width: 420px;
+    background-size: 372px;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.header-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
