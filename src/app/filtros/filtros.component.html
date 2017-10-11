@@ -35,3 +35,15 @@
     <div class="rango-de-precios">{{rangoPrecios[0] + ' - ' + rangoPrecios[1]}}</div>
     <p-slider [(ngModel)]="rangoPrecios" [range]="true" [min]="500" [max]="2000" [step]="500" (onChange)="rangoSeleccionado($event)"></p-slider>
 </div>
+
+<div class="form-group">
+    <label>Baños</label>
+    <div class="rango-de-precios">{{numeroBanos[0] + ' - ' + numeroBanos[1]}}</div>
+    <p-slider [(ngModel)]="numeroBanos" [range]="true" [min]="1" [max]="10" [step]="1" (onChange)="banoSeleccionado($event)"></p-slider>
+</div>
+
+<div class="form-group">
+    <label>Habitaciones</label>
+    <div class="rango-de-precios">{{numeroHabitaciones[0] + ' - ' + numeroHabitaciones[1]}}</div>
+    <p-slider [(ngModel)]="numeroHabitaciones" [range]="true" [min]="1" [max]="15" [step]="1" (onChange)="cuartoSeleccionado($event)"></p-slider>
+</div>

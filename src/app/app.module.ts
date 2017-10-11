@@ -14,6 +14,7 @@ import { MosaicoComponent } from './mosaico/mosaico.component';
 import { FiltrosComponent } from './filtros/filtros.component';
 import { DetalleComponent } from './detalle/detalle.component';
 import { RouterModule } from '@angular/router';
+import { AcercadeComponent } from './acercade/acercade.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { RouterModule } from '@angular/router';
     HomeComponent,
     MosaicoComponent,
     FiltrosComponent,
-    DetalleComponent
+    DetalleComponent,
+    AcercadeComponent
   ],
   imports: [
     FormsModule,
@@ -44,11 +46,14 @@ import { RouterModule } from '@angular/router';
         component: DetalleComponent
       },
       {
+        path: 'acercade',
+        component: AcercadeComponent,
+      },
+      {
         path: '',
         redirectTo: 'inmuebles',
         pathMatch: 'full'
-      },
-        // { path: '**', component: NotFoundComponent }
+      }
       ])
   ],
   providers: [],

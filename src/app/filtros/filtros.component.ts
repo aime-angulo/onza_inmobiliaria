@@ -48,6 +48,9 @@ export class FiltrosComponent implements OnInit {
 
   rangoPrecios: number[] = [500, 1000];
 
+  numeroBanos: number[] = [1, 2];
+
+  numeroHabitaciones: number[] = [1, 4];
 
   palabras: string[];
   constructor() {
@@ -58,7 +61,16 @@ export class FiltrosComponent implements OnInit {
 
   rangoSeleccionado($event) {
     console.log($event);
-    $event.values[0] = "hola";
+    $event.values[0] = "";
   }
 
+  banoSeleccionado($event) {
+    console.log($event);
+    $event.values[0] = "";
+  }
+
+  cuartoSeleccionado($event) {
+    console.log($event);
+    $event.values[0] = "";
+  }
 }

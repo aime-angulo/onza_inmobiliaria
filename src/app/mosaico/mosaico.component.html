@@ -8,12 +8,14 @@
       <div class="col-xs-4 text-right">{{inmueble.servicio}}</div>
     </div>
     <hr />
-    <h4>
-      <p><i class="fa fa-fw fa-location-arrow" aria-hidden="true"></i> {{inmueble.ubicacion}}</p>
-    </h4>
-    <h5>
-      <p>{{inmueble.resumen}}</p>
-    </h5>
+    <div class="row">
+      <h4 class="col-xs-5"><i class="fa fa-fw fa-location-arrow" aria-hidden="true"></i> {{inmueble.ubicacion}}</h4>
+      <div class="col-xs-7 text-right">
+        <div class="info-icono"><i class="fa fa-bath"></i> 2</div>
+        <div class="info-icono"><i class="fa fa-bed"></i> 2</div>
+      </div>
+    </div>
+    <p class="text-justify margin-top-10">{{inmueble.resumen}}</p>
     <hr />
     <a class="btn btn-xs btn-link pull-right" routerLink="/inmueble/{{inmueble.id}}"><i class="fa fa-fw fa-info-circle"></i> Más información</a>
     <i class="fa fa-fw fa-facebook-official pull-left" title="Comparte esta propiedad en Facebook"></i>
