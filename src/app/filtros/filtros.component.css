@@ -73,3 +73,7 @@ angular2-multiselect.selector .cuppa-dropdown .dropdown-list .list-area ul .pure
 .rango-de-precios {
     margin-bottom: 8px;
 }
+
+p-chips .ui-chips.ui-widget .ui-chips-token {
+    background: #060606;
+}
