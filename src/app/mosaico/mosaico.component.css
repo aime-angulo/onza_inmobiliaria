@@ -8,19 +8,25 @@ hr {
 }
 
 h4 {
-    font-size: 18px;
+    font-size: 20px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     font-weight: bold;
+    color:#084b8a ;
+}
+
+a.btn-link {
+    font-size: 14px;
 }
 
 a.btn-link:hover, a.btn-link:focus {
     text-decoration: none;
+    
 }
 
 .fa-facebook-official {
-    font-size: 20px;
+    font-size: 25px;
     margin-top: 1px;
     color: #3b5998;
 }
@@ -29,4 +35,11 @@ a.btn-link:hover, a.btn-link:focus {
     display: inline-block;
     margin-top: 10px;
     margin-left: 12px;
+    font-size: 17px;
+}
+
+.negritas {
+    color: #000000 ;
+    font-weight: bold;
+    font-size: 16px;
 }
