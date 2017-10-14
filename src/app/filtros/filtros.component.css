@@ -1,79 +1,117 @@
-app-filtros {
-    background: #f3f3f3;
-    display: block;
-    padding: 10px;
-    border-radius: 4px;
+body.filter-active {
+  overflow: hidden;
 }
 
-app-filtros h3 {
-    margin-top: 0;
-    padding-bottom: 10px;
-    border-bottom: 1px dashed #B9B9B9;
+#filtros {
+  position: relative;
 }
 
-app-filtros .checkbox {
-    margin-top: 0;
+.filtros {
+  height: 48px;
+  display: flex;
 }
 
-app-filtros .servicio {
-    border: 1px solid;
+.buscador {
+  display: flex;
+  align-content: space-around;
 }
 
-app-filtros .ui-chkbox-box.ui-state-active,
-app-filtros .ui-chkbox-box.ui-state-active.ui-state-focus {
-    border: 1px solid #A1A1A1;
-    background: #101010;
+.buscador input {
+  /* display: inline-block; */
+  border: none;
+  height: 100%;
+  width: 322px;
+  padding: 10px;
+  color: gray;
 }
 
-angular2-multiselect.selector .cuppa-dropdown .selected-list .c-btn {
-    box-shadow: none;
-    padding: 6px 10px;
+.buscador button {
+  height: 100%;
+  /* display: inline-block; */
+  border: none;
+  margin: 0;
+  width: 50px;
+  background: #084B8A;
+  color: white
 }
 
-angular2-multiselect.selector .cuppa-dropdown .selected-list .c-btn .fa.fa-angle-down,
-angular2-multiselect.selector .cuppa-dropdown .selected-list .c-btn .fa.fa-angle-up {
-    top: 4px;
+.buscador button:hover {
+  background: #1968B3;
 }
 
-angular2-multiselect.selector .cuppa-dropdown .selected-list .c-btn .c-list .c-token {
-    background: #101010;
-    font-size: 12px;
-    margin-top: 1px;
-    margin-bottom: 1px;
+.opciones {
+
 }
 
-angular2-multiselect.selector .cuppa-dropdown .dropdown-list .list-area {
-    border: 1px solid #ccc;
-    background: #f3f3f3;
-    box-shadow: none;
+.opciones ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-content: flex-end;
+  height: 100%;
 }
 
-angular2-multiselect.selector .cuppa-dropdown .dropdown-list .arrow-up {
-    border-bottom-color: #ccc !important;
+.opciones li {
+  cursor: pointer;
+  height: 100%;
+  /* padding: 12px 36px; */
+  color: #ececec;
+  border-right: 1px solid #bababa;
+  transition: all .3s linear;
+  font-size: 1.2em;
 }
 
-angular2-multiselect.selector .cuppa-dropdown .dropdown-list .list-area .pure-checkbox label {
-    font-weight: normal;
-    font-size: 13px;
+.opciones li:hover {
+  background-color: gray;
 }
 
-angular2-multiselect.selector .cuppa-dropdown .dropdown-list .list-area .pure-checkbox label::before{
-    border-color: #A1A1A1 !important;
+#menu {
+  /* display: none; */
+  height: 0;
+  margin-top: -1px;
+  /* opacity: 0; */
+  transition: all .2s linear;
 }
 
-angular2-multiselect.selector .cuppa-dropdown .dropdown-list .list-area ul .pure-checkbox {
-    padding: 4px 10px;
+#menu.showing {
+  /* opacity: 1; */
+  /* display: block; */
 }
 
-angular2-multiselect.selector .cuppa-dropdown .dropdown-list .list-area .pure-checkbox.select-all input:checked + label::before,
-angular2-multiselect.selector .cuppa-dropdown .dropdown-list .list-area ul .pure-checkbox input:checked + label::before {
-    background: #101010;
+.menu {
+  height: 0;
+  overflow: hidden;
+  margin-top: 2px;
+  padding: 10px;
+  /* display: none; */
+  /* opacity: 0; */
+  transition: all .2s linear;
+  position: relative;
+  z-index: 3;
 }
 
-.rango-de-precios {
-    margin-bottom: 8px;
+.menu.showing {
+  /* display: block; */
+  /* opacity: 1; */
+  height: 300px;
+  background: white;
 }
 
-p-chips .ui-chips.ui-widget .ui-chips-token {
-    background: #101010;
+.menu h3 {
+  margin: 0;
+}
+
+.opcion-boton {
+  padding: 12px 50px;
+}
+
+.menu-header {
+  border-bottom: 1px solid #efefef;
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+}
+
+.menu-header .btn-container {
+  margin-top: -2px;
 }

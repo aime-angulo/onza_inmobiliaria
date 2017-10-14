@@ -5,16 +5,24 @@ import { SelectItem } from 'primeng/primeng';
   encapsulation: ViewEncapsulation.None,
   selector: 'app-filtros',
   templateUrl: './filtros.component.html',
-  styleUrls: ['./filtros.component.css']
+  styleUrls: [
+    './filtros.component.css',
+    './filtros.objetos.css'
+  ]
 })
 export class FiltrosComponent implements OnInit {
+  menuDisplay = {
+    showing: false,
+    opcionesShowing: null
+  };
+
   dropdownSettings = {
     singleSelection: false,
-    text: "Seleccione alguna opción",
+    text: 'Seleccione alguna opción',
     selectAllText: 'Seleccione alguna opción',
     unSelectAllText: 'Remover seleccion',
     enableSearchFilter: true,
-    classes: "selector",
+    classes: 'selector',
     badgeShowLimit: 2
   };
 
@@ -25,24 +33,24 @@ export class FiltrosComponent implements OnInit {
   selectedServicios: string[];
 
   tipos = [
-    { id: 'Casa', itemName: 'Casa' },
-    { id: 'Condominio', itemName: 'Condominio' },
-    { id: 'Bodega', itemName: 'Bodega' },
-    { id: 'Departamento', itemName: 'Departamento' },
-    { id: 'Terreno', itemName: 'Terreno' },
-    { id: 'Penthouse', itemName: 'Penthouse' },
-    { id: 'Local', itemName: 'Local' },
-    { id: 'Oficina', itemName: 'Oficina' },
-    { id: 'Villa', itemName: 'Villa' },
-    { id: 'Edificio', itemName: 'Edificio' }
+    'Casa',
+    'Condominio',
+    'Bodega',
+    'Departamento',
+    'Terreno',
+    'Penthouse',
+    'Local',
+    'Oficina',
+    'Villa',
+    'Edificio'
   ];
   selectedTipos = [];
 
   ubicacion = [
-    { id: 'Norte', itemName: 'Norte' },
-    { id: 'Sur', itemName: 'Sur' },
-    { id: 'Este', itemName: 'Este' },
-    { id: 'Oeste', itemName: 'Oeste' },
+    'Norte',
+    'Sur',
+    'Este',
+    'Oeste',
   ];
   selectedUbicacion = [];
 
@@ -57,20 +65,44 @@ export class FiltrosComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.mostrarMenu();
   }
 
   rangoSeleccionado($event) {
     console.log($event);
-    $event.values[0] = "";
+    $event.values[0] = '';
   }
 
   banoSeleccionado($event) {
     console.log($event);
-    $event.values[0] = "";
+    $event.values[0] = '';
   }
 
   cuartoSeleccionado($event) {
     console.log($event);
-    $event.values[0] = "";
+    $event.values[0] = '';
+  }
+
+  mostrarOpciones(opciones: string) {
+    this.menuDisplay.opcionesShowing = opciones;
+    this.toggleOverlay();
+  }
+
+  mostrarMenu() {
+    this.menuDisplay.showing = !this.menuDisplay.showing;
+    this.toggleOverlay();
+  }
+
+  toggleOverlay() {
+    const overlay = document.getElementById('overlay');
+    const body = document.getElementsByTagName('body')[0];
+
+    if (this.menuDisplay.showing || this.menuDisplay.opcionesShowing !== null) {
+      overlay.classList.add('filter-active');
+      body.classList.add('filter-active');
+    } else {
+      overlay.classList.remove('filter-active');
+      body.classList.remove('filter-active');
+    }
   }
 }

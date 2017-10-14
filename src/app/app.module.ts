@@ -15,6 +15,7 @@ import { FiltrosComponent } from './filtros/filtros.component';
 import { DetalleComponent } from './detalle/detalle.component';
 import { RouterModule } from '@angular/router';
 import { AcercadeComponent } from './acercade/acercade.component';
+import { FiltroOpcionesComponent } from './filtro-opciones/filtro-opciones.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { AcercadeComponent } from './acercade/acercade.component';
     MosaicoComponent,
     FiltrosComponent,
     DetalleComponent,
-    AcercadeComponent
+    AcercadeComponent,
+    FiltroOpcionesComponent
   ],
   imports: [
     FormsModule,

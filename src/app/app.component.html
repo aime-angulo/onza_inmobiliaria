@@ -14,20 +14,10 @@
 </div>
 <div class="container-fluid header-buscador">
     <div class="container">
-        <div class="row">
-            <div class="col-md-8">
-                <form class="navbar-form navbar-left" role="search">
-                    <div class="form-group">
-                        <input type="text" class="form-control">
-                    </div>
-                    <button type="submit" class="btn btn-default">Buscar</button>
-                </form>
-            </div>
-            <div class="col-md-4">
-            </div>
-        </div>
+        <app-filtros></app-filtros>
     </div>
 </div>
+<div id="overlay"></div>
 <div class="container margin-mosaico">
     <router-outlet></router-outlet>
 </div>

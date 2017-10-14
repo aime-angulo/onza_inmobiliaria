@@ -120,3 +120,16 @@ footer a:hover {
 footer h4 {
     margin-top: 0;
 }
+
+#overlay {
+    background: rgba(0,0,0,.2);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: none; 
+}
+
+#overlay.filter-active {
+    display: block;
+    z-index: 2;
+}
