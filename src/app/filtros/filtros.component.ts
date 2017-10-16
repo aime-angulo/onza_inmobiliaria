@@ -54,6 +54,8 @@ export class FiltrosComponent implements OnInit {
   ];
   selectedUbicacion = [];
 
+  precios: number[];
+
   rangoPrecios: number[] = [500, 1000];
 
   numeroBanos: number[] = [1, 2];

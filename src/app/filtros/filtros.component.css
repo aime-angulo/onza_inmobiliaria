@@ -72,11 +72,13 @@ body.filter-active {
   margin-top: -1px;
   /* opacity: 0; */
   transition: all .2s linear;
+  overflow: hidden;
 }
 
 #menu.showing {
   /* opacity: 1; */
   /* display: block; */
+  overflow: inherit;
 }
 
 .menu {

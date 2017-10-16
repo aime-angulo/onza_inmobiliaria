@@ -17,7 +17,7 @@ export class HomeComponent {
         servicio: "Renta",
         precio: 1500,
         ubicacion: "Norte",
-        encabezado: "GRAN RESIDENCIA",
+        encabezado: "LUJOSA RESIDENCIA AL NORTE",
         resumen: "Hermosa residencia ubicada al norte de Mérida, con amplios jardines y hermosa fachada. Con un gran patio con alberca",
       };
       this.inmuebles.push(new Inmueble(fake));

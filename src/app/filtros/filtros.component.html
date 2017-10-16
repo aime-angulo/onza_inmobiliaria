@@ -2,27 +2,45 @@
   <div class="col-sm-12 filtros">
     <div class="buscador">
       <input placeholder="Ubicación, número de cuartos o habitaciones" />
-      <button><i class="fa fa-search"></i></button>
+      <button>
+        <i class="fa fa-search"></i>
+      </button>
     </div>
     <div class="opciones">
       <ul>
         <li>
-          <div class="opcion-boton" (click)="mostrarOpciones('tipo')">Tipo <i class="fa fa-fw fa-plus"></i></div>
+          <div class="opcion-boton" (click)="mostrarOpciones('tipo')">Tipo
+            <i class="fa fa-fw fa-plus"></i>
+          </div>
           <div class="opcion-componente" *ngIf="menuDisplay.opcionesShowing == 'tipo'">
             <app-filtro-opciones [opciones]="tipos" (selecciones)="mostrarSelecciones($event, 'tipo')"></app-filtro-opciones>
           </div>
         </li>
         <li>
-          <div class="opcion-boton" (click)="mostrarOpciones('ubicacion')">Ubicación <i class="fa fa-fw fa-plus"></i></div>
+          <div class="opcion-boton" (click)="mostrarOpciones('ubicacion')">Ubicación
+            <i class="fa fa-fw fa-plus"></i>
+          </div>
           <div class="opcion-componente" *ngIf="menuDisplay.opcionesShowing == 'ubicacion'">
             <app-filtro-opciones [opciones]="ubicacion" (selecciones)="mostrarSelecciones($event, 'ubicacion')"></app-filtro-opciones>
           </div>
         </li>
         <li>
-          <div class="opcion-boton">Precio <i class="fa fa-fw fa-plus"></i></div>
+          <div class="opcion-boton" (click)="mostrarOpciones('precios')">Precio
+            <i class="fa fa-fw fa-plus"></i>
+          </div>
+          <!-- <div class="" *ngIf="menuDisplay.opcionesShowing == 'precios'">
+            <span class="ui-inputgroup-addon">$</span>
+            <input type="number" placeholder="Mínimo">
+            <span class="ui-inputgroup-addon">.00</span>
+            <span class="ui-inputgroup-addon">$</span>
+            <input type="number" placeholder="Máximo">
+            <span class="ui-inputgroup-addon">.00</span>
+          </div> -->
         </li>
         <li (click)="mostrarMenu()">
-          <div class="opcion-boton">Más opciones <i class="fa fa-fw fa-plus"></i></div>
+          <div class="opcion-boton">Más opciones
+            <i class="fa fa-fw fa-plus"></i>
+          </div>
         </li>
       </ul>
     </div>
@@ -34,8 +52,11 @@
           <h3>Busca tu casa ideal</h3>
         </div>
         <div class="col-md-6 text-right btn-container">
-          <button class="btn btn-sm btn-primary"><i class="fa fa-fw fa-check"></i>Aplicar búsqueda</button>
-          <button class="btn btn-sm btn-warning"><i class="fa fa-fw fa-window-close"></i></button>
+          <button class="btn btn-sm btn-primary">
+            <i class="fa fa-fw fa-check"></i> Aplicar búsqueda</button>
+          <button class="btn btn-sm btn-danger">
+            <i class="fa fa-fw fa-window-close"></i>
+          </button>
         </div>
       </div>
       <div class="row">
@@ -49,6 +70,25 @@
               <p-checkbox name="groupname" value="val2" label="Venta" [(ngModel)]="selectedValues"></p-checkbox>
             </div>
           </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>Ubicación</label>
+            <div>
+              <angular2-multiselect [data]="ubicacion" [(ngModel)]="selectedUbicacion" [settings]="dropdownSettings"></angular2-multiselect>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>Baños</label>
+            <div class="rango-de-precios">{{numeroBanos[0] + ' - ' + numeroBanos[1]}}</div>
+            <p-slider [(ngModel)]="numeroBanos" [range]="true" [min]="1" [max]="10" [step]="1" (onChange)="banoSeleccionado($event)"></p-slider>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
           <div class="form-group">
             <label>Tipo de inmueble</label>
             <div>
@@ -58,12 +98,6 @@
         </div>
         <div class="col-md-4">
           <div class="form-group">
-            <label>Ubicación</label>
-            <div>
-              <angular2-multiselect [data]="ubicacion" [(ngModel)]="selectedUbicacion" [settings]="dropdownSettings"></angular2-multiselect>
-            </div>
-          </div>
-          <div class="form-group">
             <label>Rango de precios</label>
             <div class="rango-de-precios">{{rangoPrecios[0] + ' - ' + rangoPrecios[1]}}</div>
             <p-slider [(ngModel)]="rangoPrecios" [range]="true" [min]="500" [max]="2000" [step]="500" (onChange)="rangoSeleccionado($event)"></p-slider>
@@ -71,38 +105,12 @@
         </div>
         <div class="col-md-4">
           <div class="form-group">
-            <label>Baños</label>
-            <div class="rango-de-precios">{{numeroBanos[0] + ' - ' + numeroBanos[1]}}</div>
-            <p-slider [(ngModel)]="numeroBanos" [range]="true" [min]="1" [max]="10" [step]="1" (onChange)="banoSeleccionado($event)"></p-slider>
-          </div>
-          <div class="form-group">
             <label>Habitaciones</label>
             <div class="rango-de-precios">{{numeroHabitaciones[0] + ' - ' + numeroHabitaciones[1]}}</div>
             <p-slider [(ngModel)]="numeroHabitaciones" [range]="true" [min]="1" [max]="15" [step]="1" (onChange)="cuartoSeleccionado($event)"></p-slider>
           </div>
         </div>
       </div>
-
-
-
-      <!-- <div class="form-group">
-        <label>Palabras clave</label>
-        <div>
-          <p-chips [(ngModel)]="palabras"></p-chips>
-        </div>
-      </div> -->
-
-
-
-
-
-
-
-
-
-
-
-
     </div>
   </div>
 </div>

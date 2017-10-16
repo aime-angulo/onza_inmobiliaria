@@ -13,17 +13,21 @@ div < Es un tag
 #objetoUnico < "objetoUnico" es un "id" de algún objeto del DOM
 /* */
 
+.header-logo {
+    background: url("../assets/images/bg-header.jpg");
+}
 
 .header-logo header {
     position: relative;
 }
 
 .header-logo {
-    background: rgb(0,0,0); /* Old browsers */
-    background: -moz-linear-gradient(top, rgb(0,0,0) 0%, rgb(8,75,138) 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, rgb(0,0,0) 0%,rgb(8,75,138) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, rgb(0,0,0) 0%,rgb(8,75,138) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#084b8a',GradientType=0 ); /* IE6-9 */
+     background: rgb(0,0,0);
+     /*
+    background: -moz-linear-gradient(top, rgb(0,0,0) 0%, rgb(8,75,138) 100%);
+    background: -webkit-linear-gradient(top, rgb(0,0,0) 0%,rgb(8,75,138) 100%);
+    background: linear-gradient(to bottom, rgb(0,0,0) 0%,rgb(8,75,138) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#084b8a',GradientType=0 );  */
     border-bottom: 2px solid black;
 }
 
@@ -78,7 +82,7 @@ div < Es un tag
 
 .header-item a {
     display: block;
-    color: #8C94A0;
+    color: #C3C3C3;
     font-size: 16px;
     height: 122px;
     text-align: center;
@@ -114,7 +118,7 @@ footer a {
 
 
 footer a:hover {
-    color: red;
+    color: #084B8A;
 }
 
 footer h4 {
