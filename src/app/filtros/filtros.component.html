@@ -9,36 +9,22 @@
     <div class="opciones">
       <ul>
         <li>
-          <div class="opcion-boton" (click)="mostrarOpciones('tipo')">Tipo
-            <i class="fa fa-fw fa-plus"></i>
-          </div>
-          <div class="opcion-componente" *ngIf="menuDisplay.opcionesShowing == 'tipo'">
-            <app-filtro-opciones [opciones]="tipos" (selecciones)="mostrarSelecciones($event, 'tipo')"></app-filtro-opciones>
+          <div class="opcion-boton" (click)="showDialog('mision')">Misión</div>
+          <div class="opcion-componente">
           </div>
         </li>
         <li>
-          <div class="opcion-boton" (click)="mostrarOpciones('ubicacion')">Ubicación
-            <i class="fa fa-fw fa-plus"></i>
+          <div class="opcion-boton" (click)="showDialog('vision')">Visión
           </div>
-          <div class="opcion-componente" *ngIf="menuDisplay.opcionesShowing == 'ubicacion'">
-            <app-filtro-opciones [opciones]="ubicacion" (selecciones)="mostrarSelecciones($event, 'ubicacion')"></app-filtro-opciones>
+          <div class="opcion-componente">
           </div>
         </li>
         <li>
-          <div class="opcion-boton" (click)="mostrarOpciones('precios')">Precio
-            <i class="fa fa-fw fa-plus"></i>
+          <div class="opcion-boton" (click)="showDialog('contacto')">Contacto
           </div>
-          <!-- <div class="" *ngIf="menuDisplay.opcionesShowing == 'precios'">
-            <span class="ui-inputgroup-addon">$</span>
-            <input type="number" placeholder="Mínimo">
-            <span class="ui-inputgroup-addon">.00</span>
-            <span class="ui-inputgroup-addon">$</span>
-            <input type="number" placeholder="Máximo">
-            <span class="ui-inputgroup-addon">.00</span>
-          </div> -->
         </li>
         <li (click)="mostrarMenu()">
-          <div class="opcion-boton">Más opciones
+          <div class="opcion-boton">Filtros
             <i class="fa fa-fw fa-plus"></i>
           </div>
         </li>
@@ -49,7 +35,7 @@
     <div class="menu" [ngClass]="{ 'showing': menuDisplay.showing }">
       <div class="row menu-header">
         <div class="col-md-6">
-          <h3>Busca tu casa ideal</h3>
+          <h3>Personaliza tu búsqueda</h3>
         </div>
         <div class="col-md-6 text-right btn-container">
           <button class="btn btn-sm btn-primary">
@@ -114,3 +100,15 @@
     </div>
   </div>
 </div>
+
+<p-dialog header="Misión" [(visible)]="display.mision" [width]="auto-size" [height]="100">
+  blablablabla
+</p-dialog>
+
+<p-dialog header="Visión" [(visible)]="display.vision" [width]="100" [height]="100">
+  Visión
+</p-dialog>
+
+<p-dialog header="Contacto" [(visible)]="display.contacto" [width]="100" [height]="100">
+  Contacto
+</p-dialog>

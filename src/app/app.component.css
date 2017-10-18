@@ -23,11 +23,10 @@ div < Es un tag
 
 .header-logo {
      background: rgb(0,0,0);
-     /*
     background: -moz-linear-gradient(top, rgb(0,0,0) 0%, rgb(8,75,138) 100%);
     background: -webkit-linear-gradient(top, rgb(0,0,0) 0%,rgb(8,75,138) 100%);
     background: linear-gradient(to bottom, rgb(0,0,0) 0%,rgb(8,75,138) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#084b8a',GradientType=0 );  */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#084b8a',GradientType=0 );  
     border-bottom: 2px solid black;
 }
 
@@ -45,10 +44,10 @@ div < Es un tag
 
 .logo {
     display: inline-block;
-    height: 122px;
+    height: 170px;
     width: 420px;
     background: url("../assets/images/plateado.svg");
-    background-size: 372px;
+    background-size: 420px;
     background-repeat: no-repeat;
     background-position: center center;
 }

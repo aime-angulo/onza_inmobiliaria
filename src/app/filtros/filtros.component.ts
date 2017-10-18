@@ -11,6 +11,8 @@ import { SelectItem } from 'primeng/primeng';
   ]
 })
 export class FiltrosComponent implements OnInit {
+  display;
+
   menuDisplay = {
     showing: false,
     opcionesShowing: null
@@ -63,11 +65,13 @@ export class FiltrosComponent implements OnInit {
   numeroHabitaciones: number[] = [1, 4];
 
   palabras: string[];
+
   constructor() {
+    this.resetDialogs();
   }
 
   ngOnInit() {
-    this.mostrarMenu();
+    // this.mostrarMenu();
   }
 
   rangoSeleccionado($event) {
@@ -106,5 +110,21 @@ export class FiltrosComponent implements OnInit {
       overlay.classList.remove('filter-active');
       body.classList.remove('filter-active');
     }
+  }
+
+  showDialog(dialogo) {
+    console.log(dialogo);
+    this.resetDialogs();
+    this.display[dialogo] = true;
+
+  }
+
+  resetDialogs() {
+    this.display = {
+      mision: false,
+      vision: false,
+      contacto: false
+    };
+
   }
 }

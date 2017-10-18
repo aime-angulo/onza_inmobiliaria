@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { FormsModule } from '@angular/forms';
-import { DataGridModule, SliderModule, ChipsModule, CheckboxModule } from 'primeng/primeng';
+import { DataGridModule, SliderModule, ChipsModule, CheckboxModule, DialogModule } from 'primeng/primeng';
 import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown/angular2-multiselect-dropdown';
 import { NguiMapModule } from '@ngui/map';
 import { ModalGalleryModule } from 'angular-modal-gallery';
@@ -34,6 +35,8 @@ import { FiltroOpcionesComponent } from './filtro-opciones/filtro-opciones.compo
     SliderModule,
     ChipsModule,
     CheckboxModule,
+    DialogModule,
+    BrowserAnimationsModule,
     AngularMultiSelectModule,
     NguiMapModule.forRoot({ apiUrl: 'https://maps.google.com/maps/api/js?key=AIzaSyCCcXBgyPeI99tNPVu2ZP-QS7dLNV1Httg' }),
     ModalGalleryModule.forRoot(),
