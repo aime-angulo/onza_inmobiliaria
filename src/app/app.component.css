@@ -136,3 +136,8 @@ footer h4 {
     display: block;
     z-index: 2;
 }
+
+fb-like fb_iframe_widget {
+    top: -68px;
+    right: -163px;
+}

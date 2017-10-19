@@ -1,5 +1,10 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { SelectItem } from 'primeng/primeng';
+import { Component, ViewEncapsulation } from '@angular/core';
+import { SelectItem, GMap } from 'primeng/primeng';
+
+declare var google: any;
+
+const MAP_LAT = 20.98558;
+const MAP_LNG = -89.58477;
 
 @Component({
   encapsulation: ViewEncapsulation.None,
@@ -10,8 +15,15 @@ import { SelectItem } from 'primeng/primeng';
     './filtros.objetos.css'
   ]
 })
-export class FiltrosComponent implements OnInit {
+export class FiltrosComponent {
   display;
+
+  mapOptions = {
+    center: { lat: MAP_LAT, lng: MAP_LNG },
+    zoom: 15
+  };
+
+  mapMarcador = [];
 
   menuDisplay = {
     showing: false,
@@ -70,10 +82,6 @@ export class FiltrosComponent implements OnInit {
     this.resetDialogs();
   }
 
-  ngOnInit() {
-    // this.mostrarMenu();
-  }
-
   rangoSeleccionado($event) {
     console.log($event);
     $event.values[0] = '';
@@ -116,7 +124,7 @@ export class FiltrosComponent implements OnInit {
     console.log(dialogo);
     this.resetDialogs();
     this.display[dialogo] = true;
-
+    this.establecerMarcador();
   }
 
   resetDialogs() {
@@ -126,5 +134,9 @@ export class FiltrosComponent implements OnInit {
       contacto: false
     };
 
+  }
+
+  establecerMarcador() {
+    this.mapMarcador = [new google.maps.Marker({ position: { lat: MAP_LAT, lng: MAP_LNG }, title: '' })];
   }
 }
