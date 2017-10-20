@@ -137,7 +137,9 @@ footer h4 {
     z-index: 2;
 }
 
-fb-like fb_iframe_widget {
-    top: -68px;
-    right: -163px;
+.boton-fb {
+    padding-bottom: 85px;
+    padding-right: 8px;
 }
+
+
