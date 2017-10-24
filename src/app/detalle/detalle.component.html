@@ -36,6 +36,27 @@
 </div>
 <modal-gallery [modalImages]="galeria" [description]="{imageText: 'Foto ', numberSeparator: ' de '}" class="galeria"></modal-gallery>
 <hr />
+
+<div class="row">
+  <div class="col-sm-5">
+    <h3 class="info-header">Venta: $ 5,000,000 </h3>
+  </div>
+  <div class="col-sm-1">
+    <h3 class="text-center info-header">
+      <i class="fa fa-bed"></i> 6
+    </h3>
+  </div>
+  <div class="col-sm-1">
+    <h3 class="text-center info-header">
+      <i class="fa fa-fw fa-bath"></i> 3
+    </h3>
+  </div>
+  <div class="col-sm-5">
+    <h3 class="text-right info-header">
+      <i class="fa fa-fw fa-location-arrow"></i> Norte</h3>
+  </div>
+</div>
+<hr>
 <div class="row">
   <div class="map">
     <ngui-map [center]="map.center" zoom="18">
@@ -43,21 +64,11 @@
     </ngui-map>
   </div>
 </div>
-<hr>
 <div class="row">
-  <div class="col-md-7">
-    <div>
-      <h3 class="info-header">Venta: $ 5,000,000 </h3>
-    </div>
+  <div class="col-md-12">
     <div>
       <div>
         <hr>
-        <ul>
-          <li>Baños: 3</li>
-          <li>Habitaciones: 6</li>
-        </ul>
-        <hr>
-        <h3>Inspiradora casa con acabados y accesorios de lujo en el Country Club.</h3>
         <h3>Amenidades</h3>
         <ul>
           <li>Casa Club</li>
@@ -70,7 +81,9 @@
           <li>Área con juegos para niños entre mucho otros</li>
         </ul>
         <h3>Descripcion</h3>
-        <p>Superficie: 293 m2</p>
+        <p>
+          <strong>293 m2</strong>
+        </p>
         <p>Villa tipo A (la más grande)</p>
         <ul>
           <li>3 recámaras</li>
@@ -87,11 +100,5 @@
         </ul>
       </div>
     </div>
-  </div>
-  <div class="col-md-5">
-    <h3 class="text-right info-header">
-      <i class="fa fa-fw fa-location-arrow"></i> Norte</h3>
-    <hr />
-
   </div>
 </div>

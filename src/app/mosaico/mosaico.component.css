@@ -43,3 +43,7 @@ a.btn-link:hover, a.btn-link:focus {
     font-weight: bold;
     font-size: 16px;
 }
+
+.focus {
+    cursor: pointer;
+}
