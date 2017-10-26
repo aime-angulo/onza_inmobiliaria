@@ -1,13 +1,18 @@
 <div id="filtros" class="row">
   <div class="col-sm-12 filtros">
     <div class="buscador">
-      <input placeholder="Ubicación, número de cuartos o habitaciones" />
+      <input placeholder="Ubicación, número de cuartos o baños" />
       <button>
         <i class="fa fa-search"></i>
       </button>
     </div>
     <div class="opciones">
       <ul>
+        <li>
+          <div class="opcion-boton" (click)="showDialog('quienes')">¿Quiénes?</div>
+          <div class="opcion-componente">
+          </div>
+        </li>
         <li>
           <div class="opcion-boton" (click)="showDialog('mision')">Misión</div>
           <div class="opcion-componente">
@@ -100,32 +105,44 @@
     </div>
   </div>
 </div>
+<p-dialog header="Acerca De" [(visible)]="display.acercade" [modal]="true" [width]="800" [height]="auto">
+  Somos una empresa joven, dedicada a la promoción de venta y renta de bienes inmuebles, ofrecemos asesoría profesional, seguridad
+  y confianza para nuestros clientes y colaboradores.
+</p-dialog>
+<p-dialog header="Misión" [(visible)]="display.mision" [modal]="true" [width]="800" [height]="auto">
+  Contribuir al éxito de Onza mediante la profesionalización constante de nuestros colaboradores para poder ofrecer soluciones
+  de venta, renta y promoción de inmuebles a nuestros clientes.</p-dialog>
 
-<p-dialog header="Misión" [(visible)]="display.mision" [width]="500" [height]="auto">
-  Home es una página web dedicada al mundo de la gestión empresarial, enfocada a principalmente al sector de la calidad, e
-  incluyendo también contenidos sobre medio ambiente, prevención de riesgos laborales, responsabilidad social corporativa,
-  organización industrial, coaching, etc. Los contenidos, noticias y publicaciones de la web están enfocados tanto a profesionales
-  de sector como a estudiantes y personas interesadas en el tema, del mismo modo, el foro está pensado para servir como un
-  lugar de encuentro donde poder compartir información y resolver dudas acerca de todos los temas mencionados anteriormente.
+<p-dialog header="Visión" [(visible)]="display.vision" [modal]="true" [width]="800" [height]="auto">
+  Posicionarnos en el mercado de bienes raíces como la inmobiliaria líder de la región.
 </p-dialog>
 
-<p-dialog header="Visión" [(visible)]="display.vision" [width]="500" [height]="auto">
-  PDCA Home busca ser un lugar de referencia para profesionales e interesados en temas relacionados con la calidad y la gestión
-  empresarial, buscando ofrecer todo tipo de artículos, noticias y herramientas que permitan a nuestros usuarios acceder
-  a toda la información que necesiten de forma rápida y gratuita.
-</p-dialog>
-
-<p-dialog header="Contacto" [(visible)]="display.contacto" [width]="500" [height]="auto">
-  Calle 5-E #444 x 48.
-  <br>Residencial Pensiones.
-  <br> Teléfonos: 9992701289-99921558
+<p-dialog header="Contacto" [(visible)]="display.contacto" [modal]="true" [width]="800" [height]="auto">
+  Calle 26 diagonal No.587 x 35. C.P. 97149
+  <br>Brisas, Merida, Yucatán, México.
   <br>
-  <strong>e.ontiveros@onzainmobiliaria.com</strong>
+  <i class="fa fa-fw fa-phone"></i>
+  01 999 429 0397
   <br>
-  <strong>k.vallejo@onzainmobiliaria.com</strong>
+  <strong>Katherine Vallejo Martínez</strong>
+  <br>
+  <i class="fa fa-fw fa-mobile"></i>
+  9993156314
+  <br>
+  <i class="fa fa-fw fa-envelope-o"></i>
+  k.vallejo@onzainmobiliaria.com
+  <br>
+  <strong>Ernesto Ontiveros Zapata</strong>
+  <br>
+  <i class="fa fa-fw fa-mobile"></i>
+  9991508703
+  <br>
+  <i class="fa fa-fw fa-envelope-o"></i>
+  e.ontiveros@onzainmobiliaria.com
   <hr>
   <div>
     <h3>UBÍCANOS</h3>
     <p-gmap [options]="mapOptions" [overlays]="mapMarcador" [style]="{'width':'100%','height':'400px'}"></p-gmap>
   </div>
+  <hr>
 </p-dialog>
