@@ -129,7 +129,7 @@ export class FiltrosComponent {
 
   resetDialogs() {
     this.display = {
-      quienes: false,
+      acercade: false,
       mision: false,
       vision: false,
       contacto: false

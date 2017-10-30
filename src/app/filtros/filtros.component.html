@@ -1,4 +1,4 @@
-<div id="filtros" class="row">
+<div id="filtros" class="row hidden-xs hidden-sm hidden-md">
   <div class="col-sm-12 filtros">
     <div class="buscador">
       <input placeholder="Ubicación, número de cuartos o baños" />
@@ -9,7 +9,7 @@
     <div class="opciones">
       <ul>
         <li>
-          <div class="opcion-boton" (click)="showDialog('quienes')">¿Quiénes?</div>
+          <div class="opcion-boton" (click)="showDialog('acercade')">Acerca De</div>
           <div class="opcion-componente">
           </div>
         </li>
@@ -94,7 +94,7 @@
             <p-slider [(ngModel)]="rangoPrecios" [range]="true" [min]="500" [max]="2000" [step]="500" (onChange)="rangoSeleccionado($event)"></p-slider>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 ">
           <div class="form-group">
             <label>Habitaciones</label>
             <div class="rango-de-precios">{{numeroHabitaciones[0] + ' - ' + numeroHabitaciones[1]}}</div>
