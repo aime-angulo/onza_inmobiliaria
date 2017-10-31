@@ -5,8 +5,6 @@
     src: local("Open Sans Regular"), local("OpenSans-Regular"), url("http://fonts.gstatic.com/s/opensans/v15/cJZKeOuBrn4kERxqtaUH3VtXRa8TVwTICgirnJhmVJw.woff2") format("woff2");
     unicode-range: U+0-FF, U+131, U+152-153, U+2C6, U+2DA, U+2DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
 }
-
-
 /*
 div < Es un tag
 .algo < "algo" es una clase

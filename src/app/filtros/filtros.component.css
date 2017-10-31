@@ -17,7 +17,6 @@ body.filter-active {
 }
 
 .buscador input {
-  /* display: inline-block; */
   border: none;
   height: 100%;
   width: 269px;
@@ -27,7 +26,6 @@ body.filter-active {
 
 .buscador button {
   height: 100%;
-  /* display: inline-block; */
   border: none;
   margin: 0;
   width: 50px;

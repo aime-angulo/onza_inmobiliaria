@@ -35,12 +35,6 @@ export default class Inmueble {
         this.resumen = o.resumen || this.resumen || '123456';
         this.coordenadas = o.coordenadas || this.coordenadas;
         this.fotos = o.fotos || [];
-        // this.fotos = [];
-        // for (let i = 1; i < 8; i++) {
-        //     this.fotos.push(`assets/images/${i}.jpg`);
-        //     this.fotos.push(`assets/images/${i}.jpg`);
-        //     this.fotos.push(`assets/images/${i}.jpg`);
-        // }
 
         this.fotos = [];
         for (let i = 1; i < 8; i++) {
