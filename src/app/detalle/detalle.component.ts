@@ -28,8 +28,7 @@ export class DetalleComponent {
   }
 
   setInmueble(id: string) {
-    this.d.id = id;
-    this.d.encabezado = 'loquesea';
+    this.d.id = id;;
     this.galeria = this.d.fotos.map(imagen => new Image(imagen));
   }
 }

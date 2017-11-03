@@ -12,15 +12,7 @@ export class HomeComponent {
 
   constructor() {
     for (let i = 0; i < 60; i++) {
-      let fake = {
-        id: i + 1,
-        servicio: "Renta",
-        precio: 1500,
-        ubicacion: "Norte",
-        encabezado: "LUJOSA RESIDENCIA AL NORTE",
-        resumen: "Hermosa residencia ubicada al norte de Mérida, con amplios jardines y hermosa fachada. Con un gran patio con alberca",
-      };
-      this.inmuebles.push(new Inmueble(fake));
+      this.inmuebles.push(new Inmueble());
     }
   }
 

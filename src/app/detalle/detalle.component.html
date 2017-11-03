@@ -1,12 +1,11 @@
 <div class="row detalle-header hidden-xs">
   <div class="col-sm-10">
     <h1>
-      LUJOSA CASA AL NORTE DE MÉRIDA
-      <!-- {{d.encabezado}} -->
+      {{d.encabezado}}
     </h1>
   </div>
   <div class="col-sm-2 text-right text-muted folio-contenedor">
-    <h4>Folio: 1</h4>
+    <h4>Folio: {{d.id}}</h4>
     <div class="btn-facebook visible-lg">
       <button class="btn btn-xs btn-primary" title="Compartir en Facebook">
         <i class="fa fa-fw fa-facebook-official"></i> Compartir</button>
@@ -22,8 +21,7 @@
   <hr />
   <div class="col-sm-12">
     <h2>
-      LUJOSA CASA AL NORTE DE MÉRIDA
-      <!-- {{d.encabezado}} -->
+      {{d.encabezado}}
     </h2>
   </div>
   <div class="col-sm-12 text-muted folio-contenedor">
@@ -39,21 +37,21 @@
 
 <div class="row hidden-xs">
   <div class="col-sm-5">
-    <h3 class="info-header">Venta: $ 5,000,000 </h3>
+    <h3 class="info-header">{{d.servicio}} : {{d.precio}} </h3>
   </div>
-  <div class="col-sm-1">
+  <div *ngIf="d.habitaciones > 0" class="col-sm-1">
     <h3 class="text-center info-header">
-      <i class="fa fa-bed"></i> 6
+      <i class="fa fa-bed"></i> {{d.habitaciones}}
     </h3>
   </div>
-  <div class="col-sm-1">
+  <div *ngIf="d.banos > 0" class="col-sm-1">
     <h3 class="text-center info-header">
-      <i class="fa fa-fw fa-bath"></i> 3
+      <i class="fa fa-fw fa-bath"></i> {{d.banos}}
     </h3>
   </div>
   <div class="col-sm-5">
     <h3 class="text-right info-header">
-      <i class="fa fa-fw fa-location-arrow"></i> Norte</h3>
+      <i class="fa fa-fw fa-location-arrow"></i> {{d.ubicacion}}</h3>
   </div>
 </div>
 <hr>
@@ -68,36 +66,7 @@
   <div class="col-md-12">
     <div>
       <div>
-        <hr>
-        <h3>Amenidades</h3>
-        <ul>
-          <li>Casa Club</li>
-          <li>Doble filtro de seguridad 24/7</li>
-          <li>Gimnasio</li>
-          <li>Vapor</li>
-          <li>Vestidores</li>
-          <li>Alberca</li>
-          <li>Espacios de áreas verdes</li>
-          <li>Área con juegos para niños entre mucho otros</li>
-        </ul>
-        <h3>Descripcion</h3>
-        <p>
-          <strong>293 m2</strong>
-        </p>
-        <p>Villa tipo A (la más grande)</p>
-        <ul>
-          <li>3 recámaras</li>
-          <li>3 1/2 baños</li>
-          <li>Amplia cocina</li>
-          <li>Jardines privados</li>
-          <li>Comedor</li>
-          <li>Bodega</li>
-          <li>Cuarto de servicio con baño</li>
-          <li>Family room</li>
-          <li>3 cajones de estacionamiento</li>
-          <li>Aires acondicionados</li>
-          <li>Suavizador de agua</li>
-        </ul>
+        <hr> {{d.descripcion}}
       </div>
     </div>
   </div>
