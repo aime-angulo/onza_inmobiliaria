@@ -1,8 +1,10 @@
-import { Component, ViewEncapsulation, OnInit } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DomSanitizer } from '@angular/platform-browser';
 
 import Inmueble from '../../modelos/inmueble';
 import { Image } from 'angular-modal-gallery';
+import { RegistrosService } from '../registros.service';
 
 declare var google: any;
 
@@ -12,28 +14,56 @@ declare var google: any;
   templateUrl: './detalle.component.html',
   styleUrls: ['./detalle.component.css']
 })
-export class DetalleComponent implements OnInit {
-  d: Inmueble = new Inmueble({});
-  galeria: Array<Image>;
+export class DetalleComponent {
+  d: Inmueble;
+  galeria: Array<Image> = [];
+  error = false;
 
   map = {
     center: '20.9978737,-89.6516842',
     marker: { lat: 20.9978737, lng: -89.6516842 }
   };
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private serv: RegistrosService) {
     route.params.subscribe(params => {
-      this.setInmueble(params.id);
+      this.initInmueble(params.id);
     });
   }
 
-  ngOnInit() {
-    this.scrollIntoViewIfOutOfView();
+  initInmueble(id: string) {
+    this.serv.registros$.subscribe(r => {
+      this.setInmueble(id);
+    });
+
+    if (this.serv.registros.length > 0) {
+      this.setInmueble(id);
+    }
   }
 
   setInmueble(id: string) {
-    this.d.id = id;
-    this.galeria = this.d.fotos.map(imagen => new Image(imagen));
+    if (this.serv.registros.length > 0) {
+      let inmueble = this.serv.registros.filter(i => i.id === id);
+      if (inmueble.length > 0) {
+        this.d = inmueble[0];
+        this.galeria = this.d.fotos.map((imagen, index) => {
+          let url = this.serv.servidorPrincipal + 'fotos/' + id + '/';
+          let img = url + imagen;
+          let min = url + this.d.miniaturas[index];
+          return new Image(img, min);
+        });
+
+        // Opciones de GMAP
+        let coordenadas = this.d.coordenadas.split(',');
+        this.map.center = this.d.coordenadas;
+        this.map.marker.lat = parseFloat(coordenadas[0]);
+        this.map.marker.lng = parseFloat(coordenadas[1]);
+        setTimeout(() => this.scrollIntoViewIfOutOfView());
+      } else {
+        this.error = true;
+      }
+    } else {
+      this.error = true;
+    }
   }
 
   scrollIntoViewIfOutOfView() {

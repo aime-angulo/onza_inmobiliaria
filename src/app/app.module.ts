@@ -19,6 +19,7 @@ import { RouterModule } from '@angular/router';
 import { FiltroOpcionesComponent } from './filtro-opciones/filtro-opciones.component';
 import { RegistrosService } from './registros.service';
 import { SafeHtmlPipe } from './safeHtml.pipe';
+import { FbSharerComponent } from './fb-sharer/fb-sharer.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { SafeHtmlPipe } from './safeHtml.pipe';
     FiltrosComponent,
     DetalleComponent,
     FiltroOpcionesComponent,
-    SafeHtmlPipe
+    SafeHtmlPipe,
+    FbSharerComponent
   ],
   imports: [
     HttpClientModule,

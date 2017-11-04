@@ -1,0 +1,22 @@
+<ng-container [ngSwitch]="modalidad">
+  <ng-container *ngSwitchCase="'detalle-lg'">
+    <div class="btn-facebook visible-lg">
+      <button class="btn btn-xs btn-primary" title="Compartir en Facebook" (click)="openFb()">
+        <i class="fa fa-fw fa-facebook-official"></i> Compartir</button>
+    </div>
+    <div class="btn-facebook hidden-lg">
+      <button class="btn btn-primary" title="Compartir en Facebook" (click)="openFb()">
+        <i class="fa fa-fw fa-facebook-official"></i>
+      </button>
+    </div>
+  </ng-container>
+
+  <div *ngSwitchCase="'detalle-xs'" class="btn-facebook pull-right">
+    <button class="btn btn-sm btn-primary" title="Compartir en Facebook" (click)="openFb()">
+      <i class="fa fa-fw fa-facebook-official"></i> Compartir</button>
+  </div>
+
+  <a *ngSwitchDefault class="default" title="Comparte esta propiedad en Facebook" (click)="openFb()">
+    <i class="fa fa-fw fa-facebook-official pull-left"></i>
+  </a>
+</ng-container>

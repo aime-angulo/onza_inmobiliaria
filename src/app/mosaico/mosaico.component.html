@@ -1,12 +1,14 @@
 <div class="thumbnail">
-  <pre>{{inmueble | json}}</pre>
-
-  <a routerLink="../inmueble/{{inmueble.id}}">
+  <a class="thumb-pic visible-xs" routerLink="../inmueble/{{inmueble.id}}">
     <img class="focus" *ngIf="fotoPrincipal !== ''" src="{{fotoPrincipal}}">
   </a>
+  <a class="thumb-pic visible-sm" routerLink="../inmueble/{{inmueble.id}}" [ngStyle]="{ 'background-image': 'url('+ fotoPrincipal + ')' }"></a>
+  <a class="thumb-pic visible-md" routerLink="../inmueble/{{inmueble.id}}" [ngStyle]="{ 'background-image': 'url('+ fotoPrincipal + ')' }"></a>
+  <a class="thumb-pic visible-lg" routerLink="../inmueble/{{inmueble.id}}" [ngStyle]="{ 'background-image': 'url('+ fotoPrincipal + ')' }"></a>
+
   <div class="caption">
     <a routerLink="../inmueble/{{inmueble.id}}">
-      <h4 class="focus">{{inmueble.encabezado}}</h4>
+      <h4 class="focus" title="{{inmueble.encabezado}}">{{inmueble.encabezado}}</h4>
     </a>
     <hr />
     <div class="row negritas">
@@ -26,11 +28,12 @@
         </div>
       </div>
     </div>
-    <p class="text-justify margin-top-10">{{inmueble.resumen}}</p>
+    <p class="text-justify margin-top-10 resumen">{{inmueble.resumen}}</p>
     <hr />
     <a class="btn btn-xs btn-link pull-right" routerLink="../inmueble/{{inmueble.id}}">
-      <i class="fa fa-fw fa-info-circle"></i> Más información</a>
-    <i class="fa fa-fw fa-facebook-official pull-left" title="Comparte esta propiedad en Facebook"></i>
+      <i class="fa fa-fw fa-info-circle"></i> Más información
+    </a>
+    <app-fb-sharer [inmueble]="inmueble"></app-fb-sharer>
     <div class="clearfix"></div>
   </div>
 </div>

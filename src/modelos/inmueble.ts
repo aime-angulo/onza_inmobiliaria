@@ -23,12 +23,12 @@ export default class Inmueble {
     this.tipo = o.tipo || this.tipo || 'Casa';
     this.ubicacion = o.ubicacion || this.ubicacion || 'Norte';
     this.direccion = o.direccion || this.direccion;
-    this.precio = o.precio || this.precio || '0';
+    this.precio = o.precio || this.precio || 0;
     this.descripcion = o.descripcion || this.descripcion;
     this.encabezado = o.encabezado || this.encabezado;
-    this.metros = o.metros || this.metros || '0';
-    this.banos = o.banos || this.banos || '0';
-    this.habitaciones = o.habitaciones || this.habitaciones || '0';
+    this.metros = o.metros || this.metros || 0;
+    this.banos = o.banos || this.banos || 0;
+    this.habitaciones = o.habitaciones || this.habitaciones || 0;
     this.fecha_registro = o.fecha_registro || this.fecha_registro;
     this.fecha_update = o.fecha_update || this.fecha_update;
     this.resumen = o.resumen || this.resumen;
@@ -42,6 +42,6 @@ export default class Inmueble {
   }
 
   get foto_principal() {
-    return this.fotos[0];
+    return this.miniaturas[0];
   }
 }

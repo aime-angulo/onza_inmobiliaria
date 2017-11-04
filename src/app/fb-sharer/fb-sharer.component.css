@@ -1,0 +1,22 @@
+a {
+  cursor: pointer;
+}
+
+.default .fa-facebook-official {
+  font-size: 25px;
+  margin-top: 1px;
+  color: #3b5998;
+}
+
+.btn-facebook {
+  overflow: auto;
+}
+
+.btn-facebook.hidden-lg .btn {
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.btn-facebook.hidden-lg .fa {
+  font-size: 24px;
+}

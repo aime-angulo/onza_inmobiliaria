@@ -1,69 +1,89 @@
-<div class="row detalle-header hidden-xs">
-  <div class="col-sm-10">
-    <h1 id="detalleEncabezado"> {{d.encabezado}} </h1>
-  </div>
-  <div class="col-sm-2 text-right text-muted folio-contenedor">
-    <h4>Folio: {{d.id}}</h4>
-    <div class="btn-facebook visible-lg">
-      <button class="btn btn-xs btn-primary" title="Compartir en Facebook">
-        <i class="fa fa-fw fa-facebook-official"></i> Compartir</button>
-    </div>
-    <div class="btn-facebook hidden-lg">
-      <button class="btn btn-primary" title="Compartir en Facebook">
-        <i class="fa fa-fw fa-facebook-official"></i>
-      </button>
-    </div>
-  </div>
-</div>
-<div class="row detalle-header visible-xs">
-  <hr />
-  <div class="col-sm-12">
-    <h2> {{d.encabezado}} </h2>
-  </div>
-  <div class="col-sm-12 text-muted folio-contenedor">
-    <div class="btn-facebook pull-right">
-      <button class="btn btn-sm btn-primary" title="Compartir en Facebook">
-        <i class="fa fa-fw fa-facebook-official"></i> Compartir</button>
-    </div>
-    <h3>Folio: 1</h3>
-  </div>
-</div>
-<modal-gallery [modalImages]="galeria" [description]="{imageText: 'Foto ', numberSeparator: ' de '}" class="galeria"></modal-gallery>
-<hr />
-
-<div class="row hidden-xs">
-  <div class="col-sm-5">
-    <h3 class="info-header">{{d.servicio}} : {{d.precio}} </h3>
-  </div>
-  <div *ngIf="d.habitaciones > 0" class="col-sm-1">
-    <h3 class="text-center info-header">
-      <i class="fa fa-bed"></i> {{d.habitaciones}}
-    </h3>
-  </div>
-  <div *ngIf="d.banos > 0" class="col-sm-1">
-    <h3 class="text-center info-header">
-      <i class="fa fa-fw fa-bath"></i> {{d.banos}}
-    </h3>
-  </div>
-  <div class="col-sm-5">
-    <h3 class="text-right info-header">
-      <i class="fa fa-fw fa-location-arrow"></i> {{d.ubicacion}}</h3>
-  </div>
-</div>
-<hr>
-<div class="row">
-  <div class="map">
-    <ngui-map [center]="map.center" zoom="18">
-      <marker [position]="map.marker"></marker>
-    </ngui-map>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-12">
-    <div>
-      <div>
-        <hr> {{d.descripcion}}
+<div class="detalle-container">
+  <div *ngIf="d">
+    <div class="row detalle-header hidden-xs">
+      <div class="col-sm-10">
+        <h1 id="detalleEncabezado"> {{d.encabezado}} </h1>
+      </div>
+      <div class="col-sm-2 text-right text-muted folio-contenedor">
+        <h4>Folio: {{d.id}}</h4>
+        <app-fb-sharer [inmueble]="d" modalidad="detalle-lg"></app-fb-sharer>
       </div>
     </div>
+
+    <div class="row detalle-header visible-xs">
+      <hr />
+      <div class="col-sm-12">
+        <h2> {{d.encabezado}} </h2>
+      </div>
+      <div class="col-sm-12 text-muted folio-contenedor">
+        <app-fb-sharer [inmueble]="d" modalidad="detalle-xs"></app-fb-sharer>
+        <h3>Folio: 1</h3>
+      </div>
+    </div>
+
+    <ng-container *ngIf="galeria.length > 0">
+      <modal-gallery [modalImages]="galeria" [description]="{imageText: 'Foto ', numberSeparator: ' de '}" class="galeria"></modal-gallery>
+    </ng-container>
+    <hr />
+
+    <div class="row hidden-xs hidden-sm">
+      <div class="col-sm-5">
+        <h3 class="info-header">{{d.servicio}} : {{d.precio | currency}} </h3>
+      </div>
+      <div *ngIf="d.habitaciones > 0" [ngClass]="{ 'col-sm-1': d.habitaciones > 0 && d.banos > 0, 'col-sm-2': d.habitaciones > 1 || d.banos === 0 }">
+        <h3 class="text-center info-header nw">
+          <i class="fa fa-bed"></i> {{d.habitaciones}}
+        </h3>
+      </div>
+      <div *ngIf="d.banos > 0" [ngClass]="{ 'col-sm-1': d.banos > 0 && d.habitaciones > 0, 'col-sm-2': d.banos > 1 || d.habitaciones === 0 }">
+        <h3 class="text-center info-header nw">
+          <i class="fa fa-fw fa-bath"></i> {{d.banos}}
+        </h3>
+      </div>
+      <div class="col-sm-5" [ngClass]="{ 'col-sm-offset-2': d.habitaciones === 0 && d.banos === 0 }">
+        <h3 class="text-right info-header">
+          <i class="fa fa-fw fa-location-arrow"></i>{{d.ubicacion}}</h3>
+      </div>
+    </div>
+
+    <div class="row visible-xs visible-sm">
+      <div class="col-xs-12">
+        <h3 class="info-header text-center">{{d.servicio}} : {{d.precio | currency}} </h3>
+      </div>
+      <div *ngIf="d.habitaciones > 0" class="col-xs-6">
+        <h3 class="text-center info-header nw">
+          <i class="fa fa-bed"></i> {{d.habitaciones}} habitaciones
+        </h3>
+      </div>
+      <div *ngIf="d.banos > 0" class="col-xs-6">
+        <h3 class="text-center info-header nw">
+          <i class="fa fa-fw fa-bath"></i> {{d.banos}} baños
+        </h3>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+      <div class="col-xs-12 visible-xs visible-sm">
+        <h3 class="info-header">
+          <i class="fa fa-fw fa-location-arrow"></i> {{d.ubicacion}}</h3>
+      </div>
+      <div class="map col-xs-12">
+        <ngui-map [center]="map.center" zoom="18">
+          <marker [position]="map.marker"></marker>
+        </ngui-map>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <hr>
+        <div class="descripcion" [innerHTML]="d.descripcion | safeHtml"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert alert-danger" *ngIf="error">
+    <i class="fa fa-fw fa-exclamation-triangle"></i> El inmueble solicitado no se encuentra disponible.
   </div>
 </div>

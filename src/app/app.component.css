@@ -14,6 +14,20 @@ div < Es un tag
 
 .dialog {
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+}
+
+.dialog p,
+.dialog h1,
+.dialog h2,
+.dialog h3,
+.dialog h4,
+.dialog h5 {
+  margin: 0;
+}
+
+.dialog h2 {
+  font-size: 1.5em;
 }
 
 .header-logo {

@@ -29,10 +29,24 @@ a.btn-link:focus {
   text-decoration: none;
 }
 
-.fa-facebook-official {
-  font-size: 25px;
-  margin-top: 1px;
-  color: #3b5998;
+.thumb-pic {
+  display: block;
+  background-color: #dedede;
+  overflow: hidden;
+  background-position: center center;
+  background-size: cover;
+}
+
+.thumb-pic.visible-sm {
+  height: 200px;
+}
+
+.thumb-pic.visible-md {
+  height: 160px;
+}
+
+.thumb-pic.visible-lg {
+  height: 260px;
 }
 
 .info-icono {
@@ -50,4 +64,11 @@ a.btn-link:focus {
 
 .focus {
   cursor: pointer;
+}
+
+.resumen {
+  white-space: pre-wrap;
+  height: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

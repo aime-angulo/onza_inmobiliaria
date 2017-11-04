@@ -10,9 +10,10 @@ import Inmueble from '../../modelos/inmueble';
 })
 export class HomeComponent {
   mensaje = 'Cargando registros...';
-  inmuebles: Inmueble[] = [];
+  inmuebles: Inmueble[];
 
   constructor(private serv: RegistrosService) {
+    this.inmuebles = serv.registros;
     serv.registros$.subscribe(r => {
       if (r.length > 0) {
         this.inmuebles = r;

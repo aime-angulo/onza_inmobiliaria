@@ -1,7 +1,7 @@
 .ui-datagrid .ui-datagrid-content.ui-widget-content {
-    border: none;
+  border: none;
 }
 
 .ui-datagrid .ui-paginator-bottom.ui-paginator.ui-widget-header.ui-unselectable-text {
-    border-top: 1px solid #d9d9d9;
+  border-top: 1px solid #d9d9d9;
 }

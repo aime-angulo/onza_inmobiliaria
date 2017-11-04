@@ -16,7 +16,7 @@ export class MosaicoComponent implements OnInit {
   ngOnInit() {
     this.fotoPrincipal = this.serv.servidorPrincipal + 'fotos/';
     if (this.inmueble.miniaturas.length > 0) {
-      this.fotoPrincipal += this.inmueble.id + '/' + this.inmueble.miniaturas[0];
+      this.fotoPrincipal += this.inmueble.id + '/' + this.inmueble.foto_principal;
     } else {
       this.fotoPrincipal += 'imagen_muestra.jpg';
     }

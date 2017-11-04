@@ -1,55 +1,74 @@
 .detalle-header {
-    margin-top: 20px;
-    margin-bottom: 10px;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 
-h1, h3.info-header, h4 {
-    margin-top: 0;
+h1,
+h3.info-header,
+h4 {
+  margin-top: 0;
 }
 
 .galeria .ng-gallery {
-    max-height: 298px;
-    overflow: auto;
-    border-radius: 4px;
-    text-align: center;
-    background: #f3f3f3;
+  max-height: 298px;
+  overflow: auto;
+  border-radius: 4px;
+  text-align: center;
+  background: #f3f3f3;
 }
 
 .galeria .ng-gallery div {
-    display: inline-block;
-    height: 118px;
-    border: 2px solid #d6d6d6;
-    background: #d6d6d6;
-    margin: 10px;
+  display: inline-block;
+  height: 118px;
+  border: 2px solid #d6d6d6;
+  background: #d6d6d6;
+  margin: 10px;
 }
 
-.galeria .ng-gallery .ng-thumb  {
-    max-width: 100%;
-    max-height:100%;
-    display: inline-block;
-    margin: 0 auto;
-    vertical-align: middle;
-    height: inherit;
-    float: none;
+.galeria .ng-gallery .ng-thumb {
+  max-width: 100%;
+  max-height: 100%;
+  display: inline-block;
+  margin: 0 auto;
+  vertical-align: middle;
+  height: inherit;
+  float: none;
 }
 
 .map ngui-map {
-    min-height: 500px;
+  min-height: 500px;
 }
 
 .folio-contenedor h4 {
-    margin-bottom: 6px;
+  margin-bottom: 6px;
 }
 
-.btn-facebook {
-    overflow: auto;
+.detalle-container {
+  min-height: 900px;
 }
 
-.btn-facebook.hidden-lg .btn {
-    padding-top: 3px;
-    padding-bottom: 3px;
+.descripcion {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.42;
+  font-size: 13px;
+  tab-size: 4;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
-.btn-facebook.hidden-lg .fa {
-    font-size: 24px;
+.descripcion p,
+.descripcion h1,
+.descripcion h2,
+.descripcion h3,
+.descripcion h4,
+.descripcion h5 {
+  margin: 0;
+}
+
+.descripcion h2 {
+  font-size: 1.5em;
+}
+
+.nw {
+  white-space: nowrap;
 }

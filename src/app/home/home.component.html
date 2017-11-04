@@ -1,6 +1,6 @@
 <p-dataGrid [value]="inmuebles" [paginator]="true" [rows]="9" [emptyMessage]="mensaje">
   <ng-template let-inmueble pTemplate="item">
-    <div class="ui-g-12 ui-md-4">
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
       <app-mosaico [inmueble]="inmueble"></app-mosaico>
     </div>
   </ng-template>
