@@ -10,23 +10,15 @@
       <ul>
         <li>
           <div class="opcion-boton" (click)="showDialog('acercade')">Acerca De</div>
-          <div class="opcion-componente">
-          </div>
         </li>
         <li>
           <div class="opcion-boton" (click)="showDialog('mision')">Misión</div>
-          <div class="opcion-componente">
-          </div>
         </li>
         <li>
-          <div class="opcion-boton" (click)="showDialog('vision')">Visión
-          </div>
-          <div class="opcion-componente">
-          </div>
+          <div class="opcion-boton" (click)="showDialog('vision')">Visión </div>
         </li>
         <li>
-          <div class="opcion-boton" (click)="showDialog('contacto')">Contacto
-          </div>
+          <div class="opcion-boton" (click)="showDialog('contacto')">Contacto </div>
         </li>
         <li (click)="mostrarMenu()">
           <div class="opcion-boton">Filtros
@@ -105,44 +97,3 @@
     </div>
   </div>
 </div>
-<p-dialog header="Acerca De" [(visible)]="display.acercade" [modal]="true" [width]="800" [height]="auto">
-  Somos una empresa joven, dedicada a la promoción de venta y renta de bienes inmuebles, ofrecemos asesoría profesional, seguridad
-  y confianza para nuestros clientes y colaboradores.
-</p-dialog>
-<p-dialog header="Misión" [(visible)]="display.mision" [modal]="true" [width]="800" [height]="auto">
-  Contribuir al éxito de Onza mediante la profesionalización constante de nuestros colaboradores para poder ofrecer soluciones
-  de venta, renta y promoción de inmuebles a nuestros clientes.</p-dialog>
-
-<p-dialog header="Visión" [(visible)]="display.vision" [modal]="true" [width]="800" [height]="auto">
-  Posicionarnos en el mercado de bienes raíces como la inmobiliaria líder de la región.
-</p-dialog>
-
-<p-dialog header="Contacto" [(visible)]="display.contacto" [modal]="true" [width]="800" [height]="auto">
-  Calle 26 diagonal No.587 x 35. C.P. 97149
-  <br>Brisas, Merida, Yucatán, México.
-  <br>
-  <i class="fa fa-fw fa-phone"></i>
-  01 999 429 0397
-  <br>
-  <strong>Katherine Vallejo Martínez</strong>
-  <br>
-  <i class="fa fa-fw fa-mobile"></i>
-  9993156314
-  <br>
-  <i class="fa fa-fw fa-envelope-o"></i>
-  k.vallejo@onzainmobiliaria.com
-  <br>
-  <strong>Ernesto Ontiveros Zapata</strong>
-  <br>
-  <i class="fa fa-fw fa-mobile"></i>
-  9991508703
-  <br>
-  <i class="fa fa-fw fa-envelope-o"></i>
-  e.ontiveros@onzainmobiliaria.com
-  <hr>
-  <div>
-    <h3>UBÍCANOS</h3>
-    <p-gmap [options]="mapOptions" [overlays]="mapMarcador" [style]="{'width':'100%','height':'400px'}"></p-gmap>
-  </div>
-  <hr>
-</p-dialog>

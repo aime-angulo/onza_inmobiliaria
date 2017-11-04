@@ -1,10 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
-import { SelectItem, GMap } from 'primeng/primeng';
-
-declare var google: any;
-
-const MAP_LAT = 20.98558;
-const MAP_LNG = -89.58477;
+import { Component, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
 
 @Component({
   encapsulation: ViewEncapsulation.None,
@@ -16,14 +10,7 @@ const MAP_LNG = -89.58477;
   ]
 })
 export class FiltrosComponent {
-  display;
-
-  mapOptions = {
-    center: { lat: MAP_LAT, lng: MAP_LNG },
-    zoom: 15
-  };
-
-  mapMarcador = [];
+  @Output() dialogSeleccionado = new EventEmitter();
 
   menuDisplay = {
     showing: false,
@@ -67,20 +54,11 @@ export class FiltrosComponent {
     'Oeste',
   ];
   selectedUbicacion = [];
-
   precios: number[];
-
   rangoPrecios: number[] = [500, 1000];
-
   numeroBanos: number[] = [1, 2];
-
   numeroHabitaciones: number[] = [1, 4];
-
   palabras: string[];
-
-  constructor() {
-    this.resetDialogs();
-  }
 
   rangoSeleccionado($event) {
     console.log($event);
@@ -121,23 +99,6 @@ export class FiltrosComponent {
   }
 
   showDialog(dialogo) {
-    console.log(dialogo);
-    this.resetDialogs();
-    this.display[dialogo] = true;
-    this.establecerMarcador();
-  }
-
-  resetDialogs() {
-    this.display = {
-      acercade: false,
-      mision: false,
-      vision: false,
-      contacto: false
-    };
-
-  }
-
-  establecerMarcador() {
-    this.mapMarcador = [new google.maps.Marker({ position: { lat: MAP_LAT, lng: MAP_LNG }, title: '' })];
+    this.dialogSeleccionado.emit(dialogo);
   }
 }

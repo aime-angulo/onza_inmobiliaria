@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import Inmueble from '../../modelos/inmueble';
@@ -12,7 +12,7 @@ declare var google: any;
   templateUrl: './detalle.component.html',
   styleUrls: ['./detalle.component.css']
 })
-export class DetalleComponent {
+export class DetalleComponent implements OnInit {
   d: Inmueble = new Inmueble({});
   galeria: Array<Image>;
 
@@ -27,8 +27,29 @@ export class DetalleComponent {
     });
   }
 
+  ngOnInit() {
+    this.scrollIntoViewIfOutOfView();
+  }
+
   setInmueble(id: string) {
-    this.d.id = id;;
+    this.d.id = id;
     this.galeria = this.d.fotos.map(imagen => new Image(imagen));
+  }
+
+  scrollIntoViewIfOutOfView() {
+    const el = <any>document.getElementById('detalleEncabezado');
+    const topOfPage = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+    const heightOfPage = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+    let elY = 0;
+    let elH = 0;
+    for (let p = el; p && p.tagName !== 'BODY'; p = p.offsetParent) {
+      elY += p.offsetTop;
+    }
+    elH = el.offsetHeight;
+    if ((topOfPage + heightOfPage) < (elY + elH)) {
+      el.scrollIntoView(false);
+    } else if (elY < topOfPage) {
+      el.scrollIntoView(true);
+    }
   }
 }

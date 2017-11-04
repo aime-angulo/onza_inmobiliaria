@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { DataGridModule, SliderModule, ChipsModule, CheckboxModule, DialogModule, GMapModule } from 'primeng/primeng';
 import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown/angular2-multiselect-dropdown';
@@ -15,8 +16,9 @@ import { MosaicoComponent } from './mosaico/mosaico.component';
 import { FiltrosComponent } from './filtros/filtros.component';
 import { DetalleComponent } from './detalle/detalle.component';
 import { RouterModule } from '@angular/router';
-import { AcercadeComponent } from './acercade/acercade.component';
 import { FiltroOpcionesComponent } from './filtro-opciones/filtro-opciones.component';
+import { RegistrosService } from './registros.service';
+import { SafeHtmlPipe } from './safeHtml.pipe';
 
 @NgModule({
   declarations: [
@@ -25,10 +27,11 @@ import { FiltroOpcionesComponent } from './filtro-opciones/filtro-opciones.compo
     MosaicoComponent,
     FiltrosComponent,
     DetalleComponent,
-    AcercadeComponent,
-    FiltroOpcionesComponent
+    FiltroOpcionesComponent,
+    SafeHtmlPipe
   ],
   imports: [
+    HttpClientModule,
     FormsModule,
     BrowserModule,
     DataGridModule,
@@ -41,7 +44,6 @@ import { FiltroOpcionesComponent } from './filtro-opciones/filtro-opciones.compo
     GMapModule,
     NguiMapModule.forRoot({ apiUrl: 'https://maps.google.com/maps/api/js?key=AIzaSyCCcXBgyPeI99tNPVu2ZP-QS7dLNV1Httg' }),
     ModalGalleryModule.forRoot(),
-
     RouterModule.forRoot(
       [{
         path: 'inmuebles',
@@ -52,17 +54,13 @@ import { FiltroOpcionesComponent } from './filtro-opciones/filtro-opciones.compo
         component: DetalleComponent
       },
       {
-        path: 'acercade',
-        component: AcercadeComponent,
-      },
-      {
         path: '',
         redirectTo: 'inmuebles',
         pathMatch: 'full'
       }
       ])
   ],
-  providers: [],
+  providers: [RegistrosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

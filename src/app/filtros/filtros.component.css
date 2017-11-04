@@ -2,6 +2,10 @@ body.filter-active {
   overflow: hidden;
 }
 
+.header-buscador {
+  background-color: #8C94A0;
+}
+
 #filtros {
   position: relative;
 }
@@ -30,11 +34,17 @@ body.filter-active {
   margin: 0;
   width: 50px;
   background: #084B8A;
-  color: white
+  color: white;
+  border-radius: 0;
 }
 
 .buscador button:hover {
   background: #1968B3;
+}
+
+.buscador input:focus,
+.buscador button:focus {
+  outline: none;
 }
 
 .opciones ul {
@@ -102,4 +112,3 @@ body.filter-active {
 .menu-header .btn-container {
   margin-top: -2px;
 }
-

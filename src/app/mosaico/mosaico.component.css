@@ -1,49 +1,53 @@
 .margin-top-10 {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 hr {
-    margin-top: 12px;
-    margin-bottom: 12px;
+  margin-top: 12px;
+  margin-bottom: 12px;
 }
 
 h4 {
-    font-size: 20px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    font-weight: bold;
-    color:#084b8a ;
+  font-size: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: bold;
+  color: #084b8a;
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 a.btn-link {
-    font-size: 14px;
+  font-size: 14px;
 }
 
-a.btn-link:hover, a.btn-link:focus {
-    text-decoration: none;
-    
+a.btn-link:hover,
+a.btn-link:focus {
+  text-decoration: none;
 }
 
 .fa-facebook-official {
-    font-size: 25px;
-    margin-top: 1px;
-    color: #3b5998;
+  font-size: 25px;
+  margin-top: 1px;
+  color: #3b5998;
 }
 
 .info-icono {
-    display: inline-block;
-    margin-top: 10px;
-    margin-left: 12px;
-    font-size: 17px;
+  display: inline-block;
+  margin-top: 10px;
+  margin-left: 12px;
+  font-size: 17px;
 }
 
 .negritas {
-    color: #000000 ;
-    font-weight: bold;
-    font-size: 16px;
+  color: #000000;
+  font-weight: bold;
+  font-size: 16px;
 }
 
 .focus {
-    cursor: pointer;
+  cursor: pointer;
 }
