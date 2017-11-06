@@ -1,4 +1,23 @@
 import { Component, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
+import { RegistrosService } from '../registros.service';
+import Inmueble from '../../modelos/inmueble';
+import * as _ from 'lodash';
+
+export interface FiltrosOpciones {
+  de: any;
+  a: any;
+}
+
+export interface Filtros {
+  palabras: string;
+  tipos: string[];
+  servicios: string[];
+  ubicacion: string[];
+  banos: FiltrosOpciones;
+  habitaciones: FiltrosOpciones;
+  precios: FiltrosOpciones;
+}
 
 @Component({
   encapsulation: ViewEncapsulation.None,
@@ -17,67 +36,63 @@ export class FiltrosComponent {
     opcionesShowing: null
   };
 
-  dropdownSettings = {
-    singleSelection: false,
-    text: 'Seleccione alguna opción',
-    selectAllText: 'Seleccione alguna opción',
-    unSelectAllText: 'Remover seleccion',
-    enableSearchFilter: true,
-    classes: 'selector',
-    badgeShowLimit: 2
+  palabras = '';
+
+  tipos = ['Casa', 'Condominio', 'Bodega', 'Departamento', 'Terreno', 'Penthouse', 'Local', 'Oficina', 'Villa', 'Edificio'];
+  selectedTipos = _.cloneDeep(this.tipos);
+
+  servicios = ['Renta', 'Venta'];
+  selectedServicios = _.cloneDeep(this.servicios);
+
+  ubicacion = ['Centro', 'Norte', 'Sur', 'Este', 'Oeste'];
+  selectedUbicacion = _.cloneDeep(this.ubicacion);
+
+  opcionesBanos = [];
+  selectedBanos = {
+    de: undefined,
+    a: undefined
   };
 
-  servicios = [
-    { label: 'Renta', value: 'Renta' },
-    { label: 'Venta', value: 'Venta' }
-  ];
-  selectedServicios: string[];
+  opcionesHabitaciones = [];
+  selecteHabitaciones = {
+    de: undefined,
+    a: undefined
+  };
 
-  tipos = [
-    'Casa',
-    'Condominio',
-    'Bodega',
-    'Departamento',
-    'Terreno',
-    'Penthouse',
-    'Local',
-    'Oficina',
-    'Villa',
-    'Edificio'
-  ];
-  selectedTipos = [];
+  selectedPrecios = {
+    de: undefined,
+    a: undefined
+  };
 
-  ubicacion = [
-    'Norte',
-    'Sur',
-    'Este',
-    'Oeste',
-  ];
-  selectedUbicacion = [];
-  precios: number[];
-  rangoPrecios: number[] = [500, 1000];
-  numeroBanos: number[] = [1, 2];
-  numeroHabitaciones: number[] = [1, 4];
-  palabras: string[];
-
-  rangoSeleccionado($event) {
-    console.log($event);
-    $event.values[0] = '';
+  constructor(private serv: RegistrosService, private router: Router) {
+    serv.registros$.subscribe(r => {
+      if (serv.registrosSolidos.length > 0) {
+        this.calcularMax(serv.registrosSolidos);
+      }
+    });
   }
 
-  banoSeleccionado($event) {
-    console.log($event);
-    $event.values[0] = '';
-  }
+  calcularMax(r: Inmueble[]) {
+    let maxBanos = 0;
+    let maxHabitaciones = 0;
+    r.forEach(i => {
+      if (i.banos > maxBanos) {
+        maxBanos = i.banos;
+      }
+      if (i.habitaciones > maxHabitaciones) {
+        maxHabitaciones = i.habitaciones;
+      }
+    });
 
-  cuartoSeleccionado($event) {
-    console.log($event);
-    $event.values[0] = '';
-  }
+    this.opcionesBanos = [];
+    for (let i = 1; i <= maxBanos; i++) {
+      this.opcionesBanos.push(i);
+    }
 
-  mostrarOpciones(opciones: string) {
-    this.menuDisplay.opcionesShowing = opciones;
-    this.toggleOverlay();
+    this.opcionesHabitaciones = [];
+    for (let i = 1; i <= maxHabitaciones; i++) {
+      this.opcionesHabitaciones.push(i);
+    }
   }
 
   mostrarMenu() {
@@ -100,5 +115,73 @@ export class FiltrosComponent {
 
   showDialog(dialogo) {
     this.dialogSeleccionado.emit(dialogo);
+  }
+
+  buscar($event?: any) {
+    if ($event) {
+      $event.preventDefault();
+    }
+
+    if (this.selectedTipos.length === 0) {
+      this.selectedTipos = _.cloneDeep(this.tipos);
+    }
+    if (this.selectedServicios.length === 0) {
+      this.selectedServicios = _.cloneDeep(this.servicios);
+    }
+    if (this.selectedUbicacion.length === 0) {
+      this.selectedUbicacion = _.cloneDeep(this.ubicacion);
+    }
+
+    let filtros: Filtros = {
+      palabras: this.palabras,
+      tipos: this.selectedTipos,
+      servicios: this.selectedServicios,
+      ubicacion: this.selectedUbicacion,
+      banos: this.selectedBanos,
+      habitaciones: this.selecteHabitaciones,
+      precios: this.selectedPrecios
+    };
+
+    filtros = _.cloneDeep(filtros);
+
+
+    let autoBanos = false;
+    if (_.isUndefined(filtros.banos.de) || filtros.banos.de === 'No definido') {
+      filtros.banos.de = 0;
+      autoBanos = true;
+    }
+
+    if (_.isUndefined(filtros.banos.a) || filtros.banos.a === 'No definido') {
+      filtros.banos.a = _.last(this.opcionesBanos);
+      autoBanos = true;
+    }
+
+    let autoHabitaciones = false;
+    if (_.isUndefined(filtros.habitaciones.de) || filtros.banos.de === 'No definido') {
+      filtros.habitaciones.de = 0;
+      autoHabitaciones = true;
+    }
+
+    if (_.isUndefined(filtros.habitaciones.a) || filtros.habitaciones.a === 'No definido') {
+      filtros.habitaciones.a = _.last(this.opcionesHabitaciones);
+      autoHabitaciones = true;
+    }
+
+    if (_.isUndefined(filtros.precios.de)) {
+      filtros.precios.de = 0;
+    }
+
+    if (_.isUndefined(filtros.precios.a)) {
+      filtros.precios.a = 9999999999;
+    }
+
+    this.serv.filtrar(filtros, autoBanos, autoHabitaciones);
+    this.menuDisplay.showing = false;
+
+    const overlay = document.getElementById('overlay');
+    const body = document.getElementsByTagName('body')[0];
+    overlay.classList.remove('filter-active');
+    body.classList.remove('filter-active');
+    this.router.navigateByUrl('/inmuebles');
   }
 }

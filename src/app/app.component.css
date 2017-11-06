@@ -147,6 +147,7 @@ footer h4 {
 #overlay.filter-active {
   display: block;
   z-index: 2;
+  margin-top: 0px;
 }
 
 .boton-fb {

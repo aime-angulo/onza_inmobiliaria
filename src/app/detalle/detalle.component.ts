@@ -57,7 +57,11 @@ export class DetalleComponent {
         this.map.center = this.d.coordenadas;
         this.map.marker.lat = parseFloat(coordenadas[0]);
         this.map.marker.lng = parseFloat(coordenadas[1]);
-        setTimeout(() => this.scrollIntoViewIfOutOfView());
+        setTimeout(() => {
+          try {
+            this.scrollIntoViewIfOutOfView();
+          } catch (e) { }
+        });
       } else {
         this.error = true;
       }
