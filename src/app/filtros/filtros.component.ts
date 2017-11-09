@@ -41,7 +41,7 @@ export class FiltrosComponent {
   tipos = ['Casa', 'Condominio', 'Bodega', 'Departamento', 'Terreno', 'Penthouse', 'Local', 'Oficina', 'Villa', 'Edificio'];
   selectedTipos = _.cloneDeep(this.tipos);
 
-  servicios = ['Renta', 'Venta'];
+  servicios = ['Renta', 'Venta', 'Traspaso'];
   selectedServicios = _.cloneDeep(this.servicios);
 
   ubicacion = ['Centro', 'Norte', 'Sur', 'Este', 'Oeste'];
@@ -63,6 +63,7 @@ export class FiltrosComponent {
     de: undefined,
     a: undefined
   };
+
 
   constructor(private serv: RegistrosService, private router: Router) {
     serv.registros$.subscribe(r => {
@@ -184,4 +185,6 @@ export class FiltrosComponent {
     body.classList.remove('filter-active');
     this.router.navigateByUrl('/inmuebles');
   }
+
 }
+

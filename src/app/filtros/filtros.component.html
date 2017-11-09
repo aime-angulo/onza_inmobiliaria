@@ -16,13 +16,13 @@
             </div>
           </li>
           <li>
-            <div class="opcion-boton" (click)="showDialog('acercade')">Acerca De</div>
+            <div class="opcion-boton" (click)="showDialog('conocenos')">Conócenos</div>
           </li>
           <li>
-            <div class="opcion-boton" (click)="showDialog('mision')">Misión</div>
+            <div class="opcion-boton" (click)="showDialog('servicios')">Servicios</div>
           </li>
           <li>
-            <div class="opcion-boton" (click)="showDialog('vision')">Visión </div>
+            <div class="opcion-boton" (click)="showDialog('preguntas')">Preguntas </div>
           </li>
           <li>
             <div class="opcion-boton" (click)="showDialog('contacto')">Contacto </div>
@@ -37,16 +37,16 @@
       <div class="opciones">
         <ul>
           <li>
-            <div class="opcion-boton" (click)="showDialog('acercade')">
-              <i class="fa fa-fw fa-building"></i> Acerca De</div>
+            <div class="opcion-boton" (click)="showDialog('conocenos')">
+              <i class="fa fa-fw fa-building"></i> Conócenos</div>
           </li>
           <li>
-            <div class="opcion-boton" (click)="showDialog('mision')">
-              <i class="fa fa-fw fa-handshake-o"></i> Misión</div>
+            <div class="opcion-boton" (click)="showDialog('servicios')">
+              <i class="fa fa-fw fa-handshake-o"></i> Servicios</div>
           </li>
           <li>
-            <div class="opcion-boton" (click)="showDialog('vision')">
-              <i class="fa fa-fw fa-eye"></i> Visión</div>
+            <div class="opcion-boton" (click)="showDialog('preguntas')">
+              <i class="fa fa-fw fa-eye"></i> Preguntas</div>
           </li>
           <li>
             <div class="opcion-boton" (click)="showDialog('contacto')">
@@ -95,6 +95,7 @@
             <div class="form-group">
               <div>
                 <label>Tipo de inmueble</label>
+                <input type="checkbox">
               </div>
               <div class="checkbox" *ngFor="let op of tipos">
                 <p-checkbox name="tipos" [value]="op" [label]="op" [(ngModel)]="selectedTipos"></p-checkbox>

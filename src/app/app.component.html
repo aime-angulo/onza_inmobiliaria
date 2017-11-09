@@ -7,7 +7,8 @@
           <div class="header-item">
           </div>
           <div class="boton-fb">
-            <div class="fb-like" data-href="https://www.facebook.com/OnzaInYuc/?fref=ts" data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+            <div class="fb-like" data-href="https://www.facebook.com/OnzaInYuc/?fref=ts" data-layout="box_count" data-action="like" data-size="small"
+              data-show-faces="true" data-share="true"></div>
           </div>
         </div>
       </div>
@@ -23,16 +24,16 @@
 <div class="container margin-mosaico">
   <router-outlet></router-outlet>
 </div>
-<p-dialog header="Acerca De" [(visible)]="display.acercade" [modal]="true" [width]="800" [height]="auto" [styleClass]="'dialog'">
-  <div [innerHTML]="acerca_de | safeHtml"></div>
+<p-dialog header="Conócenos" [(visible)]="display.conocenos" [modal]="true" [width]="800" [height]="auto" [styleClass]="'dialog'">
+  <div [innerHTML]="conocenos | safeHtml"></div>
 </p-dialog>
 
-<p-dialog header="Misión" [(visible)]="display.mision" [modal]="true" [width]="800" [height]="auto" [styleClass]="'dialog'">
-  <div [innerHTML]="mision | safeHtml"></div>
+<p-dialog header="Servicios" [(visible)]="display.servicios" [modal]="true" [width]="800" [height]="auto" [styleClass]="'dialog'">
+  <div [innerHTML]="servicios | safeHtml"></div>
 </p-dialog>
 
-<p-dialog header="Visión" [(visible)]="display.vision" [modal]="true" [width]="800" [height]="auto" [styleClass]="'dialog'">
-  <div [innerHTML]="vision | safeHtml"></div>
+<p-dialog header="Preguntas" [(visible)]="display.preguntas" [modal]="true" [width]="800" [height]="auto" [styleClass]="'dialog'">
+  <div [innerHTML]="preguntas | safeHtml"></div>
 </p-dialog>
 
 <p-dialog header="Contacto" [(visible)]="display.contacto" [modal]="true" [width]="800" [height]="auto" [styleClass]="'dialog'">

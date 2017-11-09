@@ -15,9 +15,9 @@ const MAP_LNG = -89.58477;
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  acerca_de = '';
-  mision = '';
-  vision = '';
+  cono_cenos = '';
+  servicios = '';
+  preguntas = '';
   contacto = '';
   display;
 
@@ -31,9 +31,9 @@ export class AppComponent {
   constructor(private serv: RegistrosService) {
     this.resetDialogs();
     serv.paginas$.subscribe(r => {
-      this.acerca_de = r.acerca_de;
-      this.mision = r.mision;
-      this.vision = r.vision;
+      this.cono_cenos = r.cono_cenos;
+      this.servicios = r.servicios;
+      this.preguntas = r.preguntas;
       this.contacto = r.contacto;
     });
   }
@@ -46,9 +46,9 @@ export class AppComponent {
 
   resetDialogs() {
     this.display = {
-      acercade: false,
-      mision: false,
-      vision: false,
+      conocenos: false,
+      servicios: false,
+      preguntas: false,
       contacto: false
     };
   }
