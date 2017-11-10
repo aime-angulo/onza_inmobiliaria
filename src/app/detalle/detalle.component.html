@@ -28,10 +28,11 @@
 
     <div class="row hidden-xs hidden-sm">
       <div class="col-sm-5">
-        <h3 class="info-header">{{d.servicio}} : $ {{d.precio | number : '1.2-2'}} </h3>
+        <h3 class="info-header">{{d.servicio}}: ${{d.precio | number : '1.2-2'}} </h3>
       </div>
       <div *ngIf="d.habitaciones > 0" [ngClass]="{ 'col-sm-1': d.habitaciones > 0 && d.banos > 0, 'col-sm-2': d.habitaciones > 1 || d.banos === 0 }">
         <h3 class="text-center info-header nw">
+
           <i class="fa fa-bed"></i> {{d.habitaciones}}
         </h3>
       </div>
@@ -48,7 +49,7 @@
 
     <div class="row visible-xs visible-sm">
       <div class="col-xs-12">
-        <h3 class="info-header text-center">{{d.servicio}} : $ {{d.precio | number : '1.2-2'}} </h3>
+        <h3 class="info-header text-center">{{d.servicio}}: ${{d.precio | number : '1.2-2'}} </h3>
       </div>
       <div *ngIf="d.habitaciones > 0" class="col-xs-6">
         <h3 class="text-center info-header nw">
