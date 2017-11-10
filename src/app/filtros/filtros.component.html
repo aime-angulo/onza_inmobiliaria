@@ -94,8 +94,8 @@
           <div class="col-md-4">
             <div class="form-group">
               <div>
-                <label>Tipo de inmueble</label>
-                <input type="checkbox">
+                <input id="ck-tipo" type="checkbox" class="toggleBox" (click)="seleccionarTodo('tipos', $event)">
+                <label for="ck-tipo">Tipo de inmueble</label>
               </div>
               <div class="checkbox" *ngFor="let op of tipos">
                 <p-checkbox name="tipos" [value]="op" [label]="op" [(ngModel)]="selectedTipos"></p-checkbox>
@@ -105,7 +105,8 @@
           <div class="col-md-4">
             <div class="form-group">
               <div>
-                <label>Tipo de servicio</label>
+                <input id="ck-serv" type="checkbox" class="toggleBox" (click)="seleccionarTodo('servicios', $event)">
+                <label for="ck-serv">Tipo de servicio</label>
               </div>
               <div class="checkbox" *ngFor="let op of servicios">
                 <p-checkbox name="servicios" [value]="op" [label]="op" [(ngModel)]="selectedServicios"></p-checkbox>
@@ -114,7 +115,8 @@
             <div class="form-group">
               <div class="form-group">
                 <div>
-                  <label>Ubicación</label>
+                  <input id="ck-ubic" type="checkbox" class="toggleBox" (click)="seleccionarTodo('ubicacion', $event)">
+                  <label for="ck-ubic">Ubicación</label>
                 </div>
                 <div class="checkbox" *ngFor="let op of ubicacion">
                   <p-checkbox name="ubicacion" [value]="op" [label]="op" [(ngModel)]="selectedUbicacion"></p-checkbox>

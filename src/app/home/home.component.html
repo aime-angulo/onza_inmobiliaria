@@ -1,4 +1,4 @@
-<p-dataGrid [value]="inmuebles" [paginator]="true" [rows]="9" [emptyMessage]="mensaje">
+<p-dataGrid [value]="inmuebles" [paginator]="true" [rows]="9" [emptyMessage]="mensaje" (click)="pageChange($event)">
   <ng-template let-inmueble pTemplate="item">
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
       <app-mosaico [inmueble]="inmueble"></app-mosaico>

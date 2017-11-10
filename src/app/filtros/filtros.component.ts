@@ -186,5 +186,33 @@ export class FiltrosComponent {
     this.router.navigateByUrl('/inmuebles');
   }
 
+  seleccionarTodo(campo, $event: any) {
+    let status = $event.target.checked;
+    switch (campo) {
+      case 'tipos':
+        if (status) {
+          this.selectedTipos = _.cloneDeep(this.tipos);
+        } else {
+          this.selectedTipos = [];
+        }
+        break;
+
+      case 'servicios':
+        if (status) {
+          this.selectedServicios = _.cloneDeep(this.servicios);
+        } else {
+          this.selectedServicios = [];
+        }
+        break;
+
+      case 'ubicacion':
+        if (status) {
+          this.selectedUbicacion = _.cloneDeep(this.ubicacion);
+        } else {
+          this.selectedUbicacion = [];
+        }
+        break;
+    }
+  }
 }
 
