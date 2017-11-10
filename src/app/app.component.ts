@@ -15,7 +15,7 @@ const MAP_LNG = -89.58477;
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  cono_cenos = '';
+  conocenos = '';
   servicios = '';
   preguntas = '';
   contacto = '';
@@ -31,7 +31,7 @@ export class AppComponent {
   constructor(private serv: RegistrosService) {
     this.resetDialogs();
     serv.paginas$.subscribe(r => {
-      this.cono_cenos = r.cono_cenos;
+      this.conocenos = r.conocenos;
       this.servicios = r.servicios;
       this.preguntas = r.preguntas;
       this.contacto = r.contacto;

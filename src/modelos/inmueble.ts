@@ -27,7 +27,7 @@ export default class Inmueble {
     this.descripcion = o.descripcion || this.descripcion || '';
     this.encabezado = o.encabezado || this.encabezado || '';
     this.metros = parseFloat(o.metros) || this.metros || 0;
-    this.banos = parseInt(o.banos, 10) || this.banos || 0;
+    this.banos = parseFloat(o.banos) || this.banos || 0;
     this.habitaciones = parseInt(o.habitaciones, 10) || this.habitaciones || 0;
     this.fecha_registro = o.fecha_registro || this.fecha_registro;
     this.fecha_update = o.fecha_update || this.fecha_update;

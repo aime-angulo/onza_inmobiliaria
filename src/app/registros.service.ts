@@ -81,8 +81,6 @@ export class RegistrosService {
 
   // Filtrar registros
   filtrar(filtros: Filtros, autoBanos: boolean, autoHabitaciones: boolean) {
-    let r: Inmueble[] = [];
-
     // Filtrar palabras no numéricas, quitando artículos y otras palabras clave
     let palabras = this.simplificar(filtros.palabras);
     palabras.forEach((p: string, i: number) => {
@@ -109,124 +107,77 @@ export class RegistrosService {
       }
     });
 
-    // Filtrar
-    r = this.registrosSolidos.filter(d => {
-      let similarTipo = false;
-      if (filtros.tipos.length > 0) {
-        filtros.tipos.forEach(f => {
-          if (!similarTipo) {
-            similarTipo = f === d.tipo;
-          }
-        });
-      }
-
-      let similarServicio = false;
-      if (similarTipo && filtros.servicios.length > 0) {
-        filtros.servicios.forEach(f => {
-          if (!similarServicio) {
-            similarServicio = f === d.servicio;
-          }
-        });
-      }
-
-      let similarUbicacion = false;
-      if (similarServicio && filtros.ubicacion.length > 0) {
-        filtros.ubicacion.forEach(f => {
-          if (!similarUbicacion) {
-            similarUbicacion = f === d.ubicacion;
-          }
-        });
-      }
-
-      let similarBanosDe = false;
-      if (similarUbicacion) {
-        if (filtros.banos.de) {
-          let param = parseInt(filtros.banos.de, 10);
-          similarBanosDe = param > 0 && d.banos >= param;
+    let r = this.registrosSolidos
+      .filter(d => {
+        if (filtros.tipos.length > 0) {
+          let similar = false;
+          filtros.tipos.forEach(f => {
+            if (!similar) {
+              similar = f === d.tipo;
+            }
+          });
+          return similar;
         } else {
-          similarBanosDe = true;
+          return true;
         }
-      }
-
-      let similarBanosA = false;
-      if (similarBanosDe) {
-        if (filtros.banos.a) {
-          let param = parseInt(filtros.banos.a, 10);
-          similarBanosA = param > 0 && d.banos <= param;
+      })
+      .filter(d => {
+        if (filtros.servicios.length > 0) {
+          let similar = false;
+          filtros.servicios.forEach(f => {
+            if (!similar) {
+              similar = f === d.servicio;
+            }
+          });
+          return similar;
         } else {
-          similarBanosA = true;
+          return true;
         }
-      }
-
-      let similarHabDe = false;
-      if (similarBanosA) {
-        if (filtros.habitaciones.de) {
-          let param = parseInt(filtros.habitaciones.de, 10);
-          similarHabDe = param > 0 && d.habitaciones >= param;
+      })
+      .filter(d => {
+        if (filtros.ubicacion.length > 0) {
+          let similar = false;
+          filtros.ubicacion.forEach(f => {
+            if (!similar) {
+              similar = f === d.ubicacion;
+            }
+          });
+          return similar;
         } else {
-          similarHabDe = true;
+          return true;
         }
-      }
-
-      let similarHabA = false;
-      if (similarHabDe) {
-        if (filtros.habitaciones.a) {
-          let param = parseInt(filtros.habitaciones.a, 10);
-          similarHabA = param > 0 && d.habitaciones <= param;
-        } else {
-          similarHabA = true;
-        }
-      }
-
-      let similarPrecDe = false;
-      if (similarHabDe) {
-        if (filtros.precios.de) {
-          let param = parseFloat(filtros.precios.de);
-          similarPrecDe = param > 0 && d.precio >= param;
-        } else {
-          similarPrecDe = true;
-        }
-      }
-
-      let similarPrecA = false;
-      if (similarPrecDe) {
-        if (filtros.precios.a) {
-          let param = parseFloat(filtros.precios.a);
-          similarPrecA = param > 0 && d.precio <= param;
-        } else {
-          similarPrecA = true;
-        }
-      }
-
-      let similar = similarPrecA;
-      let similarPalabras = false;
-      if (similarPrecA) {
+      })
+      .filter(d => filtros.banos.de ? d.banos >= filtros.banos.de : true)
+      .filter(d => filtros.banos.a ? d.banos <= filtros.banos.a : true)
+      .filter(d => filtros.habitaciones.de ? d.habitaciones >= filtros.habitaciones.de : true)
+      .filter(d => filtros.habitaciones.a ? d.habitaciones <= filtros.habitaciones.a : true)
+      .filter(d => filtros.precios.de ? d.precio >= filtros.precios.de : true)
+      .filter(d => filtros.precios.a ? d.precio <= filtros.precios.a : true)
+      .filter(d => {
         if (filtros.palabras.trim().length > 0 && palabras.length > 0) {
+          let similar = false;
           palabras.forEach(p => {
-            if (!similarPalabras) {
+            if (!similar) {
               let info = '';
               ['encabezado', 'resumen', 'descripcion', 'direccion'].forEach(a => info += ' ' + d[a]);
               info = info.replace(/<(?:.|\n)*?>/gm, ' ');
               this.simplificar(info).forEach(op => {
                 if (op === p) {
-                  similarPalabras = true;
+                  similar = true;
                 }
               });
             }
           });
-          similar = similarPalabras;
+          return similar;
         } else {
-          similar = true;
+          return true;
         }
-      }
-
-      return similar;
-    });
+      });
 
     this.registros = _.cloneDeep(r);
     this.registros$.next(_.cloneDeep(r));
 
-    console.log(r);
+    // console.log(r);
   }
 
   simplificar(palabras: string): string[] {

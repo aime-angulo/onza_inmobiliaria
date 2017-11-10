@@ -121,10 +121,12 @@ body.filter-active {
   margin-top: -2px;
   transition: all .2s linear;
   overflow: hidden;
+  display: none;
 }
 
 #menu.showing {
   overflow: inherit;
+  display: block;
 }
 
 .menu {
@@ -137,7 +139,7 @@ body.filter-active {
 }
 
 .menu.showing {
-  height: 270px;
+  height: 284px;
   background: white;
 }
 
@@ -159,7 +161,7 @@ body.filter-active {
 }
 
 .menu-container {
-  height: 214px;
+  height: 230px;
   overflow: auto;
 }
 
@@ -201,4 +203,8 @@ body.filter-active {
 
 .columna3 .form-control {
   display: inline-block;
+}
+
+.toggleBox {
+  margin-right: 6px !important;
 }

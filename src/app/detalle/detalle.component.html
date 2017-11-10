@@ -79,7 +79,7 @@
     <div class="row">
       <div class="col-md-12">
         <hr>
-        <div class="m">{{d.metros}} m2</div>
+        <h4 *ngIf="d.metros > 0">Dimensiones: {{d.metros | number}} m2</h4>
         <div class="descripcion" [innerHTML]="d.descripcion | safeHtml"></div>
       </div>
     </div>
