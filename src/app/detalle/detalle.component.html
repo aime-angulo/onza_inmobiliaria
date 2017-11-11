@@ -79,13 +79,21 @@
     <div class="row">
       <div class="col-md-12">
         <hr>
-        <h4 *ngIf="d.metros > 0">Dimensiones: {{d.metros | number}} m2</h4>
-        <div class="descripcion" [innerHTML]="d.descripcion | safeHtml"></div>
+        <div>
+          <h4 *ngIf="d.metros > 0">Dimensiones: {{d.metros | number}} m2</h4>
+          <div class="descripcion" [innerHTML]="d.descripcion | safeHtml"></div>
+        </div>
       </div>
     </div>
+    <hr>
+    <div class="row">
+      <div class="col-md-12">
+        <button class="btn btn-primary pull-right" type="button">Descargar PDF
+          <i class="fa fa-file-pdf-o"></i>
+        </button>
+      </div>
+    </div>
+    <div class="alert alert-danger" *ngIf="error">
+      <i class="fa fa-fw fa-exclamation-triangle"></i> El inmueble solicitado no se encuentra disponible.
+    </div>
   </div>
-
-  <div class="alert alert-danger" *ngIf="error">
-    <i class="fa fa-fw fa-exclamation-triangle"></i> El inmueble solicitado no se encuentra disponible.
-  </div>
-</div>
