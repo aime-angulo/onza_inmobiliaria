@@ -53,10 +53,12 @@ export class DetalleComponent {
         });
 
         // Opciones de GMAP
-        let coordenadas = this.d.coordenadas.split(',');
-        this.map.center = this.d.coordenadas;
-        this.map.marker.lat = parseFloat(coordenadas[0]);
-        this.map.marker.lng = parseFloat(coordenadas[1]);
+        if (this.d.coordenadas && this.d.coordenadas !== '') {
+          let coordenadas = this.d.coordenadas.split(',');
+          this.map.center = this.d.coordenadas;
+          this.map.marker.lat = parseFloat(coordenadas[0]);
+          this.map.marker.lng = parseFloat(coordenadas[1]);
+        }
         setTimeout(() => {
           try {
             this.scrollIntoViewIfOutOfView();
@@ -85,5 +87,9 @@ export class DetalleComponent {
     } else if (elY < topOfPage) {
       el.scrollIntoView(true);
     }
+  }
+
+  pdf() {
+
   }
 }
