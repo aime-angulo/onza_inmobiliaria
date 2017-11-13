@@ -52,12 +52,12 @@
         <h3 class="info-header text-center">{{d.servicio}}: ${{d.precio | number : '1.2-2'}} </h3>
       </div>
       <div *ngIf="d.habitaciones > 0" class="col-xs-6">
-        <h3 class="text-center info-header nw">
+        <h3 class="text-center info-header nw" title="Cantidad de habitaciones">
           <i class="fa fa-bed"></i> {{d.habitaciones}} habitaciones
         </h3>
       </div>
       <div *ngIf="d.banos > 0" class="col-xs-6">
-        <h3 class="text-center info-header nw">
+        <h3 class="text-center info-header nw" title="Cantidad de baños">
           <i class="fa fa-fw fa-bath"></i> {{d.banos}} baños
         </h3>
       </div>
@@ -70,16 +70,20 @@
         <h3 class="info-header">
           <i class="fa fa-fw fa-location-arrow"></i> {{d.ubicacion}}</h3>
       </div>
-      <div class="map col-xs-12">
+      <div class="map col-xs-12" *ngIf="d.coordenadas && d.coordenadas.trim() !== ''">
         <ngui-map [center]="map.center" zoom="18">
           <marker [position]="map.marker"></marker>
+          <hr>
         </ngui-map>
       </div>
     </div>
     <div class="row">
       <div class="col-md-12">
+<<<<<<< HEAD
         <hr>
         <h4 *ngIf="d.direccion.trim().length > 0">Dirección: {{d.direccion}}</h4>
+=======
+>>>>>>> 7d714271e3f3095de8008345fd6f75c5892206a7
         <div>
           <h4 *ngIf="d.metros > 0">Dimensiones: {{d.metros | number}} m2</h4>
           <hr>
@@ -90,8 +94,9 @@
     <hr>
     <div class="row">
       <div class="col-md-12">
-        <button class="btn btn-primary pull-right" type="button">Descargar PDF
-          <i class="fa fa-file-pdf-o"></i>
+        <button class="btn btn-primary pull-right" type="button" (click)="pdf()">
+          <i class="fa fa-fw fa-file-pdf-o"></i>
+          Descargar información en PDF
         </button>
       </div>
     </div>
