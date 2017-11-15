@@ -34,10 +34,6 @@ div < Es un tag
   font-size: 1.5em;
 }
 
-.header-logo {
-  background: url("../assets/images/bg-header.jpg");
-}
-
 .header-logo header {
   position: relative;
 }
@@ -48,6 +44,7 @@ div < Es un tag
   background: -webkit-linear-gradient(top, rgb(0, 0, 0) 0%, rgb(8, 75, 138) 100%);
   background: linear-gradient(to bottom, rgb(0, 0, 0) 0%, rgb(8, 75, 138) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#084b8a', GradientType=0);
+  background-image: url("../assets/images/bg-header.jpg");
   border-bottom: 2px solid black;
 }
 
