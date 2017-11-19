@@ -37,7 +37,30 @@
 </p-dialog>
 
 <p-dialog header="Contacto" [(visible)]="display.contacto" [draggable]="false" [modal]="true" [height]="auto" [styleClass]="'dialog'">
-  <div [innerHTML]="contacto | safeHtml "></div>
+  <div class="row">
+    <div class="col-md-6" [innerHTML]="contacto | safeHtml "></div>
+    <div class="col-md-6">
+      <form>
+        <div class="form-group">
+          <label for="nombre">Nombre</label>
+          <input type="nombre" class="form-control" id="nombre">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email">
+        </div>
+        <div class="form-group">
+          <label for="telefono">Teléfono</label>
+          <input type="telefono" class="form-control" id="telefono">
+        </div>
+        <div class="form-group">
+          <label for="mensaje">Mensaje</label>
+          <textarea class="form-control" id="mensaje"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </form>
+    </div>
+  </div>
   <hr>
   <div>
     <h3>Ubícanos</h3>
