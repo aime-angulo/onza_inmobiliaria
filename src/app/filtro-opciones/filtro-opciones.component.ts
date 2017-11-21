@@ -35,7 +35,7 @@ export class FiltroOpcionesComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    // console
+
   }
 
 }
