@@ -86,16 +86,12 @@ export class AppComponent {
     enviarContacto($event) {
         $event.stopPropagation();
         if (this.form.valid) {
+            let enviado = () => {
+                this.enviado = true;
+            };
             this.form.disable();
             this.enviandoContacto = true;
-            this.serv.enviarContacto(this.formData,
-                () => {
-                    this.enviado = true;
-                },
-                () => {
-                    alert('Ha ocurrido un error. Intente de nuevo más tarde');
-                    this.form.enable();
-                });
+            this.serv.enviarContacto(this.formData, enviado, enviado);
         } else {
             alert('Todos los campos son obligatorios. Por favor, verifica la información.');
         }

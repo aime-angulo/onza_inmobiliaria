@@ -7,7 +7,8 @@
           <div class="header-item">
           </div>
           <div class="boton-fb">
-            <div class="fb-like" data-href="https://www.facebook.com/OnzaInYuc/?fref=ts" data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+            <div class="fb-like" data-href="https://www.facebook.com/OnzaInYuc/?fref=ts" data-layout="box_count" data-action="like" data-size="small"
+              data-show-faces="true" data-share="true"></div>
           </div>
         </div>
       </div>
@@ -23,19 +24,19 @@
 <div class="container margin-mosaico">
   <router-outlet></router-outlet>
 </div>
-<p-dialog header="Conócenos" [(visible)]="display.conocenos" [draggable]="false" [modal]="true" [height]="auto" [styleClass]="'dialog'">
+<p-dialog header="Conócenos" [(visible)]="display.conocenos" [draggable]="false" [modal]="true" [height]="'auto'" [styleClass]="'dialog'">
   <div [innerHTML]="conocenos | safeHtml"></div>
 </p-dialog>
 
-<p-dialog header="Servicios" [(visible)]="display.servicios" [draggable]="false" [modal]="true" [height]="auto" [styleClass]="'dialog'">
+<p-dialog header="Servicios" [(visible)]="display.servicios" [draggable]="false" [modal]="true" [height]="'auto'" [styleClass]="'dialog'">
   <div [innerHTML]="servicios | safeHtml"></div>
 </p-dialog>
 
-<p-dialog header="Preguntas" [(visible)]="display.preguntas" [draggable]="false" [modal]="true" [height]="auto" [styleClass]="'dialog'">
+<p-dialog header="Preguntas" [(visible)]="display.preguntas" [draggable]="false" [modal]="true" [height]="'auto'" [styleClass]="'dialog'">
   <div [innerHTML]="preguntas | safeHtml"></div>
 </p-dialog>
 
-<p-dialog header="Contacto" [(visible)]="display.contacto" [draggable]="false" [modal]="true" [height]="auto" [styleClass]="'dialog'">
+<p-dialog header="Contacto" [(visible)]="display.contacto" [draggable]="false" [modal]="true" [height]="'auto'" [styleClass]="'dialog'">
   <div class="row marginBottom10">
     <div class="col-md-6" [innerHTML]="contacto | safeHtml "></div>
     <div class="col-md-6">

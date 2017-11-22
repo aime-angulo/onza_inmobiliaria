@@ -12,7 +12,8 @@ import * as _ from 'lodash';
 
 @Injectable()
 export class RegistrosService {
-    public servidorPrincipal = 'http://192.168.0.20/onza/';
+    // public servidorPrincipal = 'http://192.168.0.3/onza/';
+    public servidorPrincipal = 'http://www.onzainmobiliaria.com/';
     private paginasUrl = this.servidorPrincipal + 'paginas.html'; // URL del controlador de páginas en el servidor
     private registrosUrl = this.servidorPrincipal + 'registros.html'; // URL del controlador de claves de acceso en el servidor
     private contactarUrl = this.servidorPrincipal + 'contactar.html'; // URL del controlador de claves de acceso en el servidor
