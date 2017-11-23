@@ -175,8 +175,8 @@ body.filter-active {
 
 .menu-container .checkbox {
   margin: 3px 0 3px 0;
-  display: inline-block;
-  width: 50%;
+  /* display: inline-block;
+  width: 50%; */
 }
 
 .menu-container .checkbox:hover {

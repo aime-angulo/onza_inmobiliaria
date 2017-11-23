@@ -36,7 +36,8 @@ h4 {
 }
 
 .map ngui-map {
-  min-height: 500px;
+  min-height: 125px;
+  width: 550px;
 }
 
 .folio-contenedor h4 {
