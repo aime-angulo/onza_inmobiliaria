@@ -38,7 +38,7 @@ export class FiltrosComponent {
 
     palabras = '';
 
-    tipos = ['Casa', 'Condominio', 'Bodega', 'Departamento', 'Terreno', 'Penthouse', 'Local', 'Oficina', 'Villa', 'Edificio'];
+    tipos = ['Casa', 'Condominio', 'Bodega', 'Departamento', 'Terreno', 'Penthouse', 'Local', 'Oficina', 'Villa', 'Edificio', 'Townhouse'];
     selectedTipos = _.cloneDeep(this.tipos);
 
     servicios = ['Renta', 'Venta', 'Traspaso'];

@@ -86,6 +86,46 @@
         <hr>
       </div>
     </div>
+    <div>
+      <h3 class="marginBottom10">Contáctanos</h3>
+      <div *ngIf="enviado">
+        <div class="alert alert-success">
+          <i class="fa fa-fw fa-check"></i> Tu mensaje ha sido enviado. Pronto nos pondremos en contacto con usted.</div>
+      </div>
+      <form class="form-horizontal" [formGroup]="form" (ngSubmit)="enviarContacto($event)" [hidden]="enviado">
+        <p class="marginBottom10">Si desea contactarnos puedes utilizar el siguiente formulario y pronto nos pondremos en contacto con usted.</p>
+        <div formGroupName="informacion">
+          <div class="form-group">
+            <label for="nombre" class="col-sm-2 control-label">Nombre</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control input-sm" id="nombre" name="nombre" required formControlName="nombre" [(ngModel)]="formData.nombre">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email" class="col-sm-2 control-label">Email</label>
+            <div class="col-sm-10">
+              <input type="email" class="form-control input-sm" id="email" name="email" required formControlName="email" [(ngModel)]="formData.email">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="telefono" class="col-sm-2 control-label">Teléfono</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control input-sm" id="telefono" name="telefono" required formControlName="telefono" [(ngModel)]="formData.telefono">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="mensaje" class="col-sm-2 control-label">Mensaje</label>
+            <div class="col-sm-10">
+              <textarea class="form-control input-sm" id="mensaje" name="mensaje" required formControlName="mensaje" [(ngModel)]="formData.mensaje"></textarea>
+            </div>
+          </div>
+          <div class="text-right">
+            <button type="submit" class="btn btn-primary btn-block" [disabled]="enviandoContacto">
+              <i class="fa fa-fw fa-envelope"></i> Enviar información</button>
+          </div>
+        </div>
+      </form>
+    </div>
     <div class="row">
       <div class="col-md-12">
         <a class="btn btn-primary pull-right" target="_new" href="{{sitePath}}pdf/{{d.id}}.html">
