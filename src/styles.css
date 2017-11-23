@@ -7,6 +7,10 @@ body {
   font-size: 20px !important;
 }
 
+.ui-dialog.ui-widget .ui-dialog-content.ui-widget-content {
+  background-color: gainsboro;
+}
+
 .marginBottom10 {
   margin-bottom: 10px !important;
 }

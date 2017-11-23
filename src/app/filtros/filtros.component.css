@@ -193,8 +193,13 @@ body.filter-active {
   margin-top: -2px;
 }
 
-.menu-container .input-sm {
-  width: 100px;
+.menu-container .input-precios {
+  width: 90px;
+}
+
+.input-block {
+  width: 100% !important;
+  display: block !important;
 }
 
 .columna3 .form-inline {

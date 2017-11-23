@@ -16,6 +16,12 @@ h4 {
   color: #084b8a;
 }
 
+.encabezado {
+  height: 44px;
+  white-space: normal;
+  text-transform: uppercase;
+}
+
 a:hover {
   text-decoration: none;
 }

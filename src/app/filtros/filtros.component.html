@@ -132,14 +132,10 @@
                 <label>Baños</label>
               </div>
               <div class="form-inline">
-                Entre
-                <select class="form-control input-sm" [(ngModel)]="selectedBanos.de">
-                  <option>No definido</option>
-                  <option *ngFor="let op of opcionesBanos">{{op}}</option>
-                </select> y
-                <select class="form-control input-sm" [(ngModel)]="selectedBanos.a">
-                  <option>No definido</option>
-                  <option *ngFor="let op of opcionesBanos">{{op}}</option>
+                <select class="form-control input-sm input-block" [(ngModel)]="selectedBanos">
+                  <option value="0">Todos</option>
+                  <option value="1">Entre 1 y 2</option>
+                  <option value="2">Más de 3</option>
                 </select>
               </div>
               <div class="form-group">
@@ -147,14 +143,10 @@
                   <label>Habitaciones</label>
                 </div>
                 <div class="form-inline">
-                  Entre
-                  <select class="form-control input-sm" [(ngModel)]="selecteHabitaciones.de">
-                    <option>No definido</option>
-                    <option *ngFor="let op of opcionesHabitaciones">{{op}}</option>
-                  </select> y
-                  <select class="form-control input-sm" [(ngModel)]="selecteHabitaciones.a">
-                    <option>No definido</option>
-                    <option *ngFor="let op of opcionesHabitaciones">{{op}}</option>
+                  <select class="form-control input-sm input-block" [(ngModel)]="selectedHabitaciones">
+                    <option value="0">Todos</option>
+                    <option value="1">Entre 1 y 2</option>
+                    <option value="2">Más de 3</option>
                   </select>
                 </div>
               </div>
@@ -164,8 +156,8 @@
                 </div>
                 <div class="form-inline">
                   Entre
-                  <input class="form-control input-sm" type="number" [(ngModel)]="selectedPrecios.de"> y
-                  <input class="form-control input-sm" type="number" [(ngModel)]="selectedPrecios.a">
+                  <input class="form-control input-sm input-precios" type="number" [(ngModel)]="selectedPrecios.de"> y
+                  <input class="form-control input-sm input-precios" type="number" [(ngModel)]="selectedPrecios.a">
                 </div>
               </div>
             </div>

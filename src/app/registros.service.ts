@@ -89,8 +89,7 @@ export class RegistrosService {
             if (!isNaN(parseFloat(p))) { // Es un número. Ver qué palabra la precede
                 let siguiente = palabras[i + 1];
                 if (autoBanos && ['bano', 'baño', 'banos', 'baños'].includes(siguiente)) {
-                    filtros.banos.a = p;
-                    filtros.banos.de = p;
+                    filtros.banos = p;
                     palabras.splice(i + 1, 1);
                     palabras.splice(i, 1);
                 }
@@ -101,8 +100,7 @@ export class RegistrosService {
             if (!isNaN(parseFloat(p))) { // Es un número. Ver qué palabra la precede
                 let siguiente = palabras[i + 1];
                 if (autoHabitaciones && ['cuarto', 'cuartos', 'habitacion', 'habitaciones', 'recamara', 'recamaras'].includes(siguiente)) {
-                    filtros.habitaciones.a = p;
-                    filtros.habitaciones.de = p;
+                    filtros.habitaciones = p;
                     palabras.splice(i + 1, 1);
                     palabras.splice(i, 1);
                 }
@@ -149,10 +147,26 @@ export class RegistrosService {
                     return true;
                 }
             })
-            .filter(d => filtros.banos.de ? d.banos >= filtros.banos.de : true)
-            .filter(d => filtros.banos.a ? d.banos <= filtros.banos.a : true)
-            .filter(d => filtros.habitaciones.de ? d.habitaciones >= filtros.habitaciones.de : true)
-            .filter(d => filtros.habitaciones.a ? d.habitaciones <= filtros.habitaciones.a : true)
+            .filter(d => {
+                switch (filtros.banos) {
+                    case '0': // Todos
+                        return true;
+                    case '1': // 1 - 2
+                        return d.banos > 0 && d.banos < 2;
+                    case '2': // 3 o más
+                        return d.banos >= 3;
+                }
+            })
+            .filter(d => {
+                switch (filtros.habitaciones) {
+                    case '0': // Todos
+                        return true;
+                    case '1': // 1 - 2
+                        return d.habitaciones > 0 && d.habitaciones < 2;
+                    case '2': // 3 o más
+                        return d.habitaciones >= 3;
+                }
+            })
             .filter(d => filtros.precios.de ? d.precio >= filtros.precios.de : true)
             .filter(d => filtros.precios.a ? d.precio <= filtros.precios.a : true)
             .filter(d => {
