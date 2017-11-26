@@ -5,6 +5,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import Inmueble from '../../modelos/inmueble';
 import { Image } from 'angular-modal-gallery';
 import { RegistrosService } from '../registros.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 declare var google: any;
 
@@ -25,10 +26,24 @@ export class DetalleComponent {
         marker: { lat: 20.9978737, lng: -89.6516842 }
     };
 
-    constructor(private route: ActivatedRoute, private serv: RegistrosService) {
+    form: FormGroup;
+    formData: any = {};
+    enviandoContacto: boolean;
+    enviado: boolean;
+
+    constructor(private route: ActivatedRoute, private fb: FormBuilder, private serv: RegistrosService) {
         this.sitePath = serv.servidorPrincipal;
         route.params.subscribe(params => {
             this.initInmueble(params.id);
+        });
+
+        this.form = this.fb.group({
+            informacion: this.fb.group({
+                nombre: [this.formData.nombre, [Validators.required, Validators.minLength(4)]],
+                email: [this.formData.email, [Validators.required]],
+                telefono: [this.formData.telefono, [Validators.required]],
+                mensaje: [this.formData.mensaje, [Validators.required]]
+            })
         });
     }
 
@@ -47,6 +62,7 @@ export class DetalleComponent {
             let inmueble = this.serv.registros.filter(i => i.id === id);
             if (inmueble.length > 0) {
                 this.d = inmueble[0];
+                this.formData.inmueble = this.d;
                 this.galeria = this.d.fotos.map((imagen, index) => {
                     let url = this.serv.servidorPrincipal + 'fotos/' + id + '/';
                     let img = url + imagen;
@@ -88,6 +104,20 @@ export class DetalleComponent {
             el.scrollIntoView(false);
         } else if (elY < topOfPage) {
             el.scrollIntoView(true);
+        }
+    }
+
+    enviarContacto($event) {
+        $event.stopPropagation();
+        if (this.form.valid) {
+            let enviado = () => {
+                this.enviado = true;
+            };
+            this.form.disable();
+            this.enviandoContacto = true;
+            this.serv.solicitarInmuebleInfo(this.formData, enviado, enviado);
+        } else {
+            alert('Todos los campos son obligatorios. Por favor, verifica la información.');
         }
     }
 }

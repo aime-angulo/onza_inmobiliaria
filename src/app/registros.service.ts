@@ -17,6 +17,7 @@ export class RegistrosService {
     private paginasUrl = this.servidorPrincipal + 'paginas.html'; // URL del controlador de páginas en el servidor
     private registrosUrl = this.servidorPrincipal + 'registros.html'; // URL del controlador de claves de acceso en el servidor
     private contactarUrl = this.servidorPrincipal + 'contactar.html'; // URL del controlador de claves de acceso en el servidor
+    private masInfo = this.servidorPrincipal + 'masinfo.html'; // URL del controlador de claves de acceso en el servidor
 
     // Segunda parte: Gestionar los objetos para que puedan ser accedidos desde todo el portal
     public registrosSolidos: Inmueble[] = [];
@@ -234,6 +235,11 @@ export class RegistrosService {
 
     enviarContacto(data: any, callback: Function, error: Function) {
         let subject = this.http.post(this.contactarUrl, data);
+        return this.httpRequest(subject, callback, error);
+    }
+
+    solicitarInmuebleInfo(data: any, callback: Function, error: Function) {
+        let subject = this.http.post(this.masInfo, data);
         return this.httpRequest(subject, callback, error);
     }
 }

@@ -63,10 +63,10 @@ div < Es un tag
 
 .logo {
   display: inline-block;
-  height: 170px;
+  height: 200px;
   width: 420px;
-  background: url("../assets/images/plateado.svg");
-  background-size: 420px;
+  background: url("../assets/images/logo.png");
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
 }
