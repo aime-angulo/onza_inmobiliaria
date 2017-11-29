@@ -164,9 +164,9 @@ footer h4 {
 }
 
 .homeBtn a {
-  color: #ececec;
+  color: rgb(128, 149, 168);
 }
 
 .homeBtn a:hover {
-  color: gray;
+  color: #ececec;
 }

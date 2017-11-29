@@ -5,10 +5,15 @@ body {
 .ui-dialog.ui-widget .ui-dialog-titlebar .ui-dialog-title {
   font-weight: bold;
   font-size: 20px !important;
+  
 }
 
 .ui-dialog.ui-widget .ui-dialog-content.ui-widget-content {
-  background-color: gainsboro;
+  background: linear-gradient(to bottom right, rgb(54, 54, 56), rgb(58, 59, 61) , rgb(103, 103, 105), rgba(156, 157, 161, 0.637), rgb(110, 110, 116), rgb(62, 63, 66));
+}
+
+.ui-dialog.ui-widget-content {
+  border: none !important;
 }
 
 .marginBottom10 {
