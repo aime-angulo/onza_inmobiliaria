@@ -43,34 +43,34 @@
 <p-dialog header="Contacto" [(visible)]="display.contacto" [draggable]="false" [modal]="true" [height]="'auto'" [styleClass]="'dialog'">
   <div class="marginBottom10">
     <div>
-      <h3 class="marginBottom10">Contáctanos</h3>
+      <h3 class="marginBottom10 blanco">Contáctanos</h3>
       <div *ngIf="enviado">
         <div class="alert alert-success">
           <i class="fa fa-fw fa-check"></i> Tu mensaje ha sido enviado. Pronto nos pondremos en contacto con usted.</div>
       </div>
       <form class="form-horizontal" [formGroup]="form" (ngSubmit)="enviarContacto($event)" [hidden]="enviado">
-        <p class="marginBottom10">Si desea contactarnos puedes utilizar el siguiente formulario y pronto nos pondremos en contacto con usted.</p>
+        <p class="marginBottom10 blanco">Si desea contactarnos puedes utilizar el siguiente formulario y pronto nos pondremos en contacto con usted.</p>
         <div formGroupName="informacion">
           <div class="form-group">
-            <label for="nombre" class="col-sm-2 control-label">Nombre</label>
+            <label for="nombre" class="col-sm-2 control-label  blanco">Nombre</label>
             <div class="col-sm-10">
               <input type="text" class="form-control input-sm" id="nombre" name="nombre" required formControlName="nombre" [(ngModel)]="formData.nombre">
             </div>
           </div>
           <div class="form-group">
-            <label for="email" class="col-sm-2 control-label">Email</label>
+            <label for="email" class="col-sm-2 control-label  blanco">Email</label>
             <div class="col-sm-10">
               <input type="email" class="form-control input-sm" id="email" name="email" required formControlName="email" [(ngModel)]="formData.email">
             </div>
           </div>
           <div class="form-group">
-            <label for="telefono" class="col-sm-2 control-label">Teléfono</label>
+            <label for="telefono" class="col-sm-2 control-label blanco">Teléfono</label>
             <div class="col-sm-10">
               <input type="text" class="form-control input-sm" id="telefono" name="telefono" required formControlName="telefono" [(ngModel)]="formData.telefono">
             </div>
           </div>
           <div class="form-group">
-            <label for="mensaje" class="col-sm-2 control-label">Mensaje</label>
+            <label for="mensaje" class="col-sm-2 control-label blanco">Mensaje</label>
             <div class="col-sm-10">
               <textarea class="form-control input-sm" id="mensaje" name="mensaje" required formControlName="mensaje" [(ngModel)]="formData.mensaje"></textarea>
             </div>
@@ -87,11 +87,11 @@
   </div>
   <hr />
   <div>
-    <h3>Ubícanos</h3>
+    <h3 class="blanco">Ubícanos</h3>
     <p-gmap [options]="mapOptions" [overlays]="mapMarcador" [style]="{'width':'100%','height':'400px'}"></p-gmap>
+  <hr />
   </div>
 </p-dialog>
-
 <footer>
   <div class="container ">
     <div class="row ">
