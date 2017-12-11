@@ -47,19 +47,8 @@ export class FiltrosComponent {
     ubicacion = ['Centro', 'Norte', 'Sur', 'Este', 'Oeste'];
     selectedUbicacion = _.cloneDeep(this.ubicacion);
 
-    //   opcionesBanos = [];
-    //   selectedBanos = {
-    //     de: undefined,
-    //     a: undefined
-    //   };
 
     selectedBanos = '0';
-
-    //   opcionesHabitaciones = [];
-    //   selecteHabitaciones = {
-    //     de: undefined,
-    //     a: undefined
-    //   };
 
     selectedHabitaciones = '0';
 
