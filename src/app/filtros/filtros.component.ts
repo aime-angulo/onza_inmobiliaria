@@ -39,14 +39,13 @@ export class FiltrosComponent {
     palabras = '';
 
     tipos = ['Casa', 'Condominio', 'Bodega', 'Departamento', 'Terreno', 'Penthouse', 'Local', 'Oficina', 'Villa', 'Edificio', 'Townhouse'];
-    selectedTipos = _.cloneDeep(this.tipos);
+    selectedTipos = [];
 
     servicios = ['Renta', 'Venta', 'Traspaso'];
-    selectedServicios = _.cloneDeep(this.servicios);
+    selectedServicios = [];
 
     ubicacion = ['Centro', 'Norte', 'Sur', 'Este', 'Oeste'];
-    selectedUbicacion = _.cloneDeep(this.ubicacion);
-
+    selectedUbicacion = [];
 
     selectedBanos = '0';
 
@@ -58,35 +57,7 @@ export class FiltrosComponent {
     };
 
     constructor(private serv: RegistrosService, private router: Router) {
-        // serv.registros$.subscribe(r => {
-        //   if (serv.registrosSolidos.length > 0) {
-        //     this.calcularMax(serv.registrosSolidos);
-        //   }
-        // });
     }
-
-    //   calcularMax(r: Inmueble[]) {
-    //     let maxBanos = 0;
-    //     let maxHabitaciones = 0;
-    //     r.forEach(i => {
-    //       if (i.banos > maxBanos) {
-    //         maxBanos = i.banos;
-    //       }
-    //       if (i.habitaciones > maxHabitaciones) {
-    //         maxHabitaciones = i.habitaciones;
-    //       }
-    //     });
-
-    //     this.opcionesBanos = [];
-    //     for (let i = 1; i <= maxBanos; i++) {
-    //       this.opcionesBanos.push(i);
-    //     }
-
-    //     this.opcionesHabitaciones = [];
-    //     for (let i = 1; i <= maxHabitaciones; i++) {
-    //       this.opcionesHabitaciones.push(i);
-    //     }
-    //   }
 
     mostrarMenu() {
         this.menuDisplay.showing = !this.menuDisplay.showing;
@@ -115,21 +86,26 @@ export class FiltrosComponent {
             $event.preventDefault();
         }
 
-        if (this.selectedTipos.length === 0) {
-            this.selectedTipos = _.cloneDeep(this.tipos);
+        // Ajuste para realizar búsquedas con filtros vacíos
+        let selectedTipos = _.cloneDeep(this.selectedTipos);
+        let selectedServicios = _.cloneDeep(this.selectedServicios);
+        let selectedUbicacion = _.cloneDeep(this.selectedUbicacion);
+
+        if (selectedTipos.length === 0) {
+            selectedTipos = _.cloneDeep(this.tipos);
         }
-        if (this.selectedServicios.length === 0) {
-            this.selectedServicios = _.cloneDeep(this.servicios);
+        if (selectedServicios.length === 0) {
+            selectedServicios = _.cloneDeep(this.servicios);
         }
         if (this.selectedUbicacion.length === 0) {
-            this.selectedUbicacion = _.cloneDeep(this.ubicacion);
+            selectedUbicacion = _.cloneDeep(this.ubicacion);
         }
 
         let filtros: Filtros = {
             palabras: this.palabras,
-            tipos: this.selectedTipos,
-            servicios: this.selectedServicios,
-            ubicacion: this.selectedUbicacion,
+            tipos: selectedTipos,
+            servicios: selectedServicios,
+            ubicacion: selectedUbicacion,
             banos: this.selectedBanos,
             habitaciones: this.selectedHabitaciones,
             precios: this.selectedPrecios
