@@ -77,15 +77,16 @@
           <div class="descripcion" [innerHTML]="d.descripcion | safeHtml"></div>
         </div>
       </div>
+      <hr>
       <div class="map col-xs-12" *ngIf="d.coordenadas && d.coordenadas.trim() !== ''">
         <hr>
         <ngui-map [center]="map.center" zoom="18">
           <marker [position]="map.marker"></marker>
         </ngui-map>
-        <hr>
       </div>
     </div>
     <div>
+      <hr>
       <h3>Solicita más información</h3>
       <p>Contáctenos llenando el siguiente formulario: </p>
       <div *ngIf="enviado">
