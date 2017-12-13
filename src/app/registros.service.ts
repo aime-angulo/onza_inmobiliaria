@@ -1,9 +1,11 @@
+// tslint:disable:forin
 /**
  * Este servicio provee métodos para obtener información de la base de datos.
  */
 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Meta } from '@angular/platform-browser';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import Inmueble from '../modelos/inmueble';
@@ -27,7 +29,7 @@ export class RegistrosService {
     public registros$: Subject<Inmueble[]> = new Subject();
     public paginas$: Subject<any> = new Subject();
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private Meta: Meta) {
         this.cargarRegistros();
         this.cargarPaginas();
     }
@@ -241,5 +243,21 @@ export class RegistrosService {
     solicitarInmuebleInfo(data: any, callback: Function, error: Function) {
         let subject = this.http.post(this.masInfo, data);
         return this.httpRequest(subject, callback, error);
+    }
+
+    metaMosaico() {
+        this.Meta.updateTag({ name: 'og:type', content: 'website' });
+        this.Meta.updateTag({ name: 'og:url', content: 'http://www.onzainmobiliaria.com/' });
+        this.Meta.updateTag({ name: 'og:title', content: 'Onza Inmobiliaria' });
+        this.Meta.updateTag({ name: 'og:description', content: 'Bienvenido a Onza Inmobiliaria' });
+        this.Meta.updateTag({ name: 'og:image', content: 'http://www.onzainmobiliaria.com/assets/logo.png' });
+    }
+
+    metaInmueble(i: Inmueble) {
+        this.Meta.updateTag({ name: 'og:type', content: 'website' });
+        this.Meta.updateTag({ name: 'og:url', content: 'http://www.onzainmobiliaria.com/inmuebles/' + i.id });
+        this.Meta.updateTag({ name: 'og:title', content: 'Onza Inmobiliaria: ' + i.encabezado });
+        this.Meta.updateTag({ name: 'og:description', content: i.resumen });
+        this.Meta.updateTag({ name: 'og:image', content: 'http://www.onzainmobiliaria.com/fotos/' + i.id + '/' + i.foto_principal });
     }
 }

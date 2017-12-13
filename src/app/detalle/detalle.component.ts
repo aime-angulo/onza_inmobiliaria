@@ -77,6 +77,9 @@ export class DetalleComponent {
                     this.map.marker.lat = parseFloat(coordenadas[0]);
                     this.map.marker.lng = parseFloat(coordenadas[1]);
                 }
+
+                this.serv.metaInmueble(this.d);
+
                 setTimeout(() => {
                     try {
                         this.scrollIntoViewIfOutOfView();
@@ -91,20 +94,21 @@ export class DetalleComponent {
     }
 
     scrollIntoViewIfOutOfView() {
-        const el = <any>document.getElementById('detalleEncabezado');
-        const topOfPage = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
-        const heightOfPage = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-        let elY = 0;
-        let elH = 0;
-        for (let p = el; p && p.tagName !== 'BODY'; p = p.offsetParent) {
-            elY += p.offsetTop;
-        }
-        elH = el.offsetHeight;
-        if ((topOfPage + heightOfPage) < (elY + elH)) {
-            el.scrollIntoView(false);
-        } else if (elY < topOfPage) {
-            el.scrollIntoView(true);
-        }
+        // const el = <any>document.getElementById('detalleEncabezado');
+        // const topOfPage = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+        // const heightOfPage = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+        // let elY = 0;
+        // let elH = 0;
+        // for (let p = el; p && p.tagName !== 'BODY'; p = p.offsetParent) {
+        //     elY += p.offsetTop;
+        // }
+        // elH = el.offsetHeight;
+        // if ((topOfPage + heightOfPage) < (elY + elH)) {
+        //     el.scrollIntoView(false);
+        // } else if (elY < topOfPage) {
+        //     el.scrollIntoView(true);
+        // }
+        window.scrollTo(0, 0);
     }
 
     enviarContacto($event) {

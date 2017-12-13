@@ -14,13 +14,12 @@ export class FbSharerComponent {
   constructor(private serv: RegistrosService) { }
 
   openFb() {
-    let url = 'http://www.facebook.com/sharer.php?s=100&p[title]='
-      + encodeURIComponent(this.inmueble.encabezado)
-      + '&p[summary]='
-      + encodeURIComponent(this.inmueble.resumen) + '&p[url]='
-      + encodeURIComponent('http://www.nufc.com')
-      + '&p[images][0]='
-      + encodeURIComponent('http://www.somedomain.com/image.jpg');
+    let inmuebleUrl = encodeURIComponent('http://www.onzainmobiliaria.com/inmueble/' + this.inmueble.id);
+    let url = 'https://www.facebook.com/dialog/share?'
+      + 'app_id=211192345592954'
+      + '&display=popup'
+      + '&href=' + inmuebleUrl;
+
     window.open(url, '_blank', 'location=yes,height=430,width=670,scrollbars=yes,status=yes');
   }
 }

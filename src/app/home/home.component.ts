@@ -28,6 +28,8 @@ export class HomeComponent implements OnDestroy {
         }
       }
     });
+
+    serv.metaMosaico();
   }
 
   ngOnDestroy() {
