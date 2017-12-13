@@ -75,7 +75,6 @@
           <h4 *ngIf="d.metros > 0">Dimensiones: {{d.metros | number}} m2</h4>
           <hr>
           <div class="descripcion" [innerHTML]="d.descripcion | safeHtml"></div>
-          <hr>
         </div>
       </div>
       <div class="map col-xs-12" *ngIf="d.coordenadas && d.coordenadas.trim() !== ''">
