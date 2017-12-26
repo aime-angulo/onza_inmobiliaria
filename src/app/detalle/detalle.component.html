@@ -89,7 +89,7 @@
       <p>Contáctenos llenando el siguiente formulario: </p>
       <div *ngIf="enviado">
         <div class="alert alert-success">
-          <i class="fa fa-fw fa-check"></i> Tu mensaje ha sido enviado. Pronto nos pondremos en contacto con usted.</div>
+          <i class="fa fa-fw fa-check"></i> Tu mensaje ha sido enviado. En breve nos comunicaremos contigo.</div>
       </div>
       <form class="form-horizontal" [formGroup]="form" (ngSubmit)="enviarContacto($event)" [hidden]="enviado">
         <div formGroupName="informacion">
